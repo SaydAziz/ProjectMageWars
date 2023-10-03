@@ -21,8 +21,20 @@ public class PlayerInput : MonoBehaviour
         
     }
 
-    public void MouseLook(InputAction.CallbackContext context)
+    public void LookInput(InputAction.CallbackContext context)
     {
         controller.GetLookInput(context.ReadValue<Vector2>());
+    }
+
+    public void MoveInput(InputAction.CallbackContext context)
+    {
+        controller.GetMoveInput(context.ReadValue<Vector2>());
+    }
+    public void JumpInput(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            controller.GetJumpInput();
+        }
     }
 }

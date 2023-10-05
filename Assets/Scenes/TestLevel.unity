@@ -1872,6 +1872,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1754398101}
   - component: {fileID: 1754398103}
+  - component: {fileID: 1754398107}
   - component: {fileID: 1754398102}
   - component: {fileID: 1754398105}
   - component: {fileID: 1754398104}
@@ -2054,6 +2055,29 @@ MonoBehaviour:
   m_DefaultActionMap: MainMovement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!136 &1754398107
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754398100}
+  m_Material: {fileID: 13400000, guid: e5abc8e13fa9f384ebe98b11f41e3528, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.53835547
+  m_Height: 1.0767109
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1754888069
 GameObject:
   m_ObjectHideFlags: 0

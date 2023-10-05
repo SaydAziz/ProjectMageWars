@@ -24,9 +24,15 @@ public class PlayerController : MonoBehaviour
     float jumpCD = 0.25f;
     float airMultiplier;
 
+    //Ability Values
+    float dashSpeed = 20f;
+    float dashCD = 4f;
+
+
     //State Info
     bool isGrounded;
     bool canJump = true;
+    bool canDash = true;
 
     
 
@@ -82,6 +88,10 @@ public class PlayerController : MonoBehaviour
     {
         canJump = true;
     }
+    private void ResetDash()
+    {
+        canDash = true;
+    }
     private bool CheckWall(Collider currentWall)
     {
         if (currentWall != cachedWall)
@@ -125,5 +135,16 @@ public class PlayerController : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCD);
         }
+    }
+    public void GetDashInput()
+    {
+        if (canDash)
+        {
+            canDash = false;
+            rb.velocity = Vector3.zero;
+            rb.AddForce(((transform.forward * yDir + transform.right * xDir) + transform.up * .2f) * dashSpeed, ForceMode.Impulse);
+            Invoke(nameof(ResetDash), dashCD);
+        }
+        
     }
 }

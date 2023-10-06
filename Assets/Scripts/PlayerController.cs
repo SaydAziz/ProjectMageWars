@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     Collider cachedWall;
 
     //Look Values
-    float mouseSensitivity = 0.1f;
+    float mouseSensitivity = 0.04f;
     float xRot, yRot;
 
     //Move Values
@@ -50,12 +50,18 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void OnDrawGizmos()
+    {
+        //Draw a cube at the maximum distance
+        Gizmos.DrawWireCube(transform.position - transform.up * 0.7f, transform.localScale);
+    }
+
     private void FixedUpdate()
     {
 
         Debug.DrawRay(transform.position, Vector3.down * 1.2f, Color.red, .1f);
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.2f, groundLayer);
-
+        isGrounded = Physics.CheckBox(transform.position - transform.up * .7f, new Vector3(.3f, .4f, .3f), Quaternion.identity, groundLayer);
+        //isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.2f, groundLayer);
 
         hitWalls = Physics.OverlapCapsule(transform.position + transform.right * 0.4f - transform.forward * 0.3f, transform.position - transform.right * 0.4f - transform.forward * 0.3f, .3f, groundLayer);
         //nearWall = Physics.CheckCapsule(transform.position + transform.right * 0.4f - transform.forward * 0.3f, transform.position - transform.right * 0.4f - transform.forward * 0.3f, .3f, groundLayer);
@@ -80,7 +86,7 @@ public class PlayerController : MonoBehaviour
         moveDir = transform.forward * yDir + transform.right * xDir;
         rb.AddForce(moveDir.normalized *  moveSpeed * airMultiplier * 10f, ForceMode.Force);
 
-        Debug.Log(hitWalls.Length);
+        Debug.Log(isGrounded);
 
     }
 

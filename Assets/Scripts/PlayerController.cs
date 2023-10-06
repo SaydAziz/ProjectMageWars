@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
+    [SerializeField] VisualController vController;
     Camera cam;
     LayerMask groundLayer;
     Collider[] hitWalls;
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     //Ability Values
     float dashSpeed = 20f;
-    float dashCD = 4f;
+    float dashCD = 2f;
 
 
     //State Info
@@ -138,6 +139,7 @@ public class PlayerController : MonoBehaviour
             canJump = false;
             rb.velocity = Vector3.zero;
             rb.AddForce((transform.up * jumpHeight) + transform.forward * jumpHeight, ForceMode.Impulse);
+            vController.TempFovChange(92, 0.5f);
 
             Invoke(nameof(ResetJump), jumpCD);
         }
@@ -149,6 +151,7 @@ public class PlayerController : MonoBehaviour
             canDash = false;
             rb.velocity = Vector3.zero;
             rb.AddForce(((transform.forward * yDir + transform.right * xDir) + transform.up * .2f) * dashSpeed, ForceMode.Impulse);
+            vController.TempFovChange(92, 0.5f);
             Invoke(nameof(ResetDash), dashCD);
         }
         

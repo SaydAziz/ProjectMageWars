@@ -15,5 +15,6 @@ public class CameraController : MonoBehaviour
     void FixedUpdate()
     {
         transform.position = headSocket.position;
+
     }
 }

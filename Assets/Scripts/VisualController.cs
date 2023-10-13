@@ -6,6 +6,7 @@ using UnityEngine;
 public class VisualController : MonoBehaviour
 {
     Camera cam;
+    public Animator handAnims;
 
     // Start is called before the first frame update
     void Start()
@@ -32,4 +33,6 @@ public class VisualController : MonoBehaviour
         cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 90, 2f);
         //cam.fieldOfView = 90;
     }
+
+
 }

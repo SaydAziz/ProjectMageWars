@@ -46,11 +46,15 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    public void LeftSpell(InputAction.CallbackContext context)
+    public void RightSpell(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            controller.QueueLeft();
+            controller.QueueRight();
+        }
+        else if (context.canceled)
+        {
+            controller.UseRight();
         }
     }
 }

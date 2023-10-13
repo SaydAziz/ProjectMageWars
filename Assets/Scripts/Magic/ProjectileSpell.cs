@@ -7,24 +7,24 @@ public class ProjectileSpell : Spell
 {
     public float travelSpeed;
     private GameObject spellCache;
-    private Rigidbody spellRB;
     private Projectile projectile;
+
+    public void Start()
+    {
+        
+    }
 
     public override void Queue(Transform transform)
     {
+        Debug.Log("QUEUEUEUEUEUUE");
         spellCache = Instantiate(prefab, transform);
-        spellRB = spellCache.GetComponent<Rigidbody>();
         projectile = spellCache.GetComponent<Projectile>();
     }
     public override void Use()
     {
-        spellRB.detectCollisions = true;
-        spellCache.gameObject.transform.parent = null;
-        spellRB.freezeRotation = false;
-        spellRB.constraints = RigidbodyConstraints.None;
-        spellRB.velocity = spellCache.gameObject.transform.parent.transform.forward * travelSpeed;
+        projectile.Shoot(travelSpeed, timeAlive);
+        spellCache.transform.Rotate(-90, 0, 0);
 
-        projectile.Shoot();
     }
 }
         

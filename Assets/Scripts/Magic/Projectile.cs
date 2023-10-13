@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Collider))]
 public class Projectile : MonoBehaviour
 {
     public Rigidbody rb;
-    public float deathTimer;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -18,14 +18,21 @@ public class Projectile : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void Shoot()
+    public void Shoot(float travelSpeed, float deathTimer)
     {
-        StartCoroutine(Die());
+        FunctionalUtility.SetLayerRecursively(this.gameObject, 0);
+        rb.detectCollisions = true;
+        transform.parent = null;
+        rb.freezeRotation = false;
+        rb.constraints = RigidbodyConstraints.None;
+        rb.velocity = transform.forward * travelSpeed;
+        Invoke("Die", deathTimer);
     }
 
-    IEnumerator Die()
+    private void Die()
     {
-        yield return new WaitForSeconds(deathTimer);
         Destroy(this.gameObject);
     }
+
+
 }

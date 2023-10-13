@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] VisualController vController;
     [SerializeField] PlayerData playerData;
+    [SerializeField] Transform leftHand, rightHand;
     Camera cam;
     LayerMask groundLayer;
     Collider[] hitWalls;
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         cam = Camera.main;
         groundLayer = LayerMask.GetMask("Ground");
     }
@@ -155,14 +157,17 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void QueueLeft()
+    public void QueueRight()
     {
-        playerData.leftHand.Queue(transform);
+        playerData.rightHand.Queue(rightHand.transform);
+        vController.handAnims.SetBool("Queued", true);
     }
 
-    public void UseLeft()
+    public void UseRight()
     {
-        playerData.leftHand.Use();
+        playerData.rightHand.Use();
+        vController.handAnims.SetBool("Queued", false);
+
     }
 
 }

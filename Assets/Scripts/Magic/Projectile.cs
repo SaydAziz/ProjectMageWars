@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Instantiate(impact, transform).transform.parent = null;
-        if (collision.gameObject.layer == 8)
+        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 7)
         {
             collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
         }

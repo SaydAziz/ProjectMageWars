@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         moveDir = transform.forward * yDir + transform.right * xDir;
         rb.AddForce(moveDir.normalized *  moveSpeed * airMultiplier * 10f, ForceMode.Force);
 
-        Debug.Log(isGrounded);
+        //Debug.Log(isGrounded);
 
     }
 

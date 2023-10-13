@@ -9,12 +9,18 @@ public class EnemyController : MonoBehaviour, IDamageable
     [SerializeField] GameObject player;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] LayerMask groundLayer, playerLayer;
+    [SerializeField] Transform spellSpawn;
+    [SerializeField] Spell spell;
+
+    bool noAttackCD = true;
+    float attackCD = 2f;
 
     Vector3 destPoint;
     bool hasDest;
-    float roamRange;
-    float range = 30;
-
+    float roamRange = 30;
+    float sightRange = 15;
+    float attackRange = 10;
+    bool seesPlayer, canAttack;
     public float health { get; set; }
 
     private void Awake()
@@ -24,11 +30,36 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
-        if (health <= 0)
+        seesPlayer = Physics.CheckSphere(transform.position, sightRange, playerLayer);
+        canAttack = Physics.CheckSphere(transform.position, attackRange, playerLayer);
+        if (health <= 0) Die();
+
+        if (seesPlayer && canAttack)
         {
-            Die();
+            agent.SetDestination(transform.position);
+            transform.LookAt(player.transform.position);
+            Attack();
         }
-        Roam();
+        else if (seesPlayer)
+        {
+            agent.SetDestination(player.transform.position);
+        }
+        else
+        {
+            Roam();
+        }
+    }
+
+    void Attack()
+    {
+        if (noAttackCD)
+        {
+            noAttackCD = false;
+            Debug.Log("BANG BANG");
+            spell.Queue(spellSpawn.transform);
+            spell.Use();
+            Invoke("resetAttack", attackCD);
+        }     
     }
 
     void Roam()
@@ -47,8 +78,8 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     void SearchDest()
     {
-        float z = Random.Range(-range, range);
-        float x = Random.Range(-range, range);
+        float z = Random.Range(-roamRange, roamRange);
+        float x = Random.Range(-roamRange, roamRange);
 
         destPoint = new Vector3(transform.position.x + x, transform.position.y, transform.position.z);
 
@@ -66,5 +97,10 @@ public class EnemyController : MonoBehaviour, IDamageable
     private void Die()
     {
         Destroy(this.gameObject);
+    }
+
+    void resetAttack()
+    {
+        noAttackCD = true;
     }
 }

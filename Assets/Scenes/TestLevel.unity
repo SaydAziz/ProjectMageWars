@@ -350,7 +350,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 375
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1855,7 +1855,7 @@ RectTransform:
   m_GameObject: {fileID: 1164687548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.39598233, y: 0.39598233, z: 0.39598233}
+  m_LocalScale: {x: 0.22448635, y: 0.22448635, z: 0.22448635}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1227882250}
@@ -2071,7 +2071,7 @@ GameObject:
   - component: {fileID: 1320625572}
   - component: {fileID: 1320625571}
   - component: {fileID: 1320625570}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2265,7 +2265,7 @@ GameObject:
   - component: {fileID: 1450869481}
   - component: {fileID: 1450869480}
   - component: {fileID: 1450869482}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShooterEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2581,7 +2581,7 @@ GameObject:
   - component: {fileID: 1576165819}
   - component: {fileID: 1576165818}
   - component: {fileID: 1576165817}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

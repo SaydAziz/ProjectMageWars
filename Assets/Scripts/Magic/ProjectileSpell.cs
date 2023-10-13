@@ -19,10 +19,11 @@ public class ProjectileSpell : Spell
         Debug.Log("QUEUEUEUEUEUUE");
         spellCache = Instantiate(prefab, transform);
         projectile = spellCache.GetComponent<Projectile>();
+        projectile.SetData(travelSpeed, timeAlive, healthChange);
     }
     public override void Use()
     {
-        projectile.Shoot(travelSpeed, timeAlive);
+        projectile.Shoot();
         spellCache.transform.Rotate(-90, 0, 0);
 
     }

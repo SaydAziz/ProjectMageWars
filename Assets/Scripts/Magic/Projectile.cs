@@ -7,6 +7,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public Rigidbody rb;
+    public GameObject impact;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -15,6 +16,8 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Instantiate(impact, transform).transform.parent = null;
+
         Destroy(this.gameObject);
     }
 

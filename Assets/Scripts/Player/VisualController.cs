@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VisualController : MonoBehaviour
 {
     Camera cam;
     public Animator handAnims;
+    [SerializeField] Slider healthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +36,8 @@ public class VisualController : MonoBehaviour
         //cam.fieldOfView = 90;
     }
 
-
+    public void UpdateHealth(float value)
+    {
+        healthBar.value = value;
+    }
 }

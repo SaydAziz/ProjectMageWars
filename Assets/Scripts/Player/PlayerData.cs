@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour, IDamageable
 {
     public Spell leftHand, rightHand;
+    [SerializeField] VisualController vController;
 
+    private float maxHealth = 100;
     public float health { get; set; }
 
     private void Awake()
@@ -15,6 +17,7 @@ public class PlayerData : MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
+        vController.UpdateHealth(health/maxHealth);
         if (health <= 0)
         {
             Die();

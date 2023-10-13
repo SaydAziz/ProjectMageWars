@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -42,6 +43,14 @@ public class PlayerInput : MonoBehaviour
         if (context.performed)
         {
             controller.GetDashInput();
+        }
+    }
+
+    public void LeftSpell(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            controller.QueueLeft();
         }
     }
 }

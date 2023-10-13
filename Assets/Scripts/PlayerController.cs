@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
     [SerializeField] VisualController vController;
+    [SerializeField] PlayerData playerData;
     Camera cam;
     LayerMask groundLayer;
     Collider[] hitWalls;
@@ -34,9 +35,6 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
     bool canJump = true;
     bool canDash = true;
-
-    
-
 
     // Start is called before the first frame update
     void Start()
@@ -156,4 +154,15 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+
+    public void QueueLeft()
+    {
+        playerData.leftHand.Queue(transform);
+    }
+
+    public void UseLeft()
+    {
+        playerData.leftHand.Use();
+    }
+
 }

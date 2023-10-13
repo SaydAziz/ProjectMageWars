@@ -48,7 +48,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Look Controls (maybe in fixed? idk we will see)
+        transform.rotation = Quaternion.Euler(0, yRot, 0);
+        cam.transform.rotation = Quaternion.Euler(xRot, yRot, 0);
     }
 
     private void OnDrawGizmos()
@@ -79,10 +81,7 @@ public class PlayerController : MonoBehaviour
             airMultiplier = 0.1f;
         }
 
-        //Look Controls
-        transform.rotation = Quaternion.Euler(0, yRot, 0);
-        cam.transform.rotation = Quaternion.Euler(xRot, yRot, 0);
-
+        
         //Move Controls
         moveDir = transform.forward * yDir + transform.right * xDir;
         rb.AddForce(moveDir.normalized *  moveSpeed * airMultiplier * 10f, ForceMode.Force);

@@ -16,4 +16,4 @@ MonoBehaviour:
   timeAlive: 2
   healthChange: -20
   prefab: {fileID: 4642234107294400351, guid: bb9336266340205479522842c547eaa5, type: 3}
-  travelSpeed: 20
+  travelSpeed: 40

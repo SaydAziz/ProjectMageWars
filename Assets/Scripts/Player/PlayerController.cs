@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
     bool canJump = true;
     bool canDash = true;
+    public bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +62,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        isDead = playerData.isDead;
         Debug.DrawRay(transform.position, Vector3.down * 1.2f, Color.red, .1f);
         isGrounded = Physics.CheckBox(transform.position - transform.up * .7f, new Vector3(.3f, .4f, .3f), Quaternion.identity, groundLayer);
         //isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.2f, groundLayer);

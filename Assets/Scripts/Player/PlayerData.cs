@@ -10,6 +10,8 @@ public class PlayerData : MonoBehaviour, IDamageable
     private float maxHealth = 100;
     public float health { get; set; }
 
+    public bool isDead = false;
+
     private void Awake()
     {
         health = 100;
@@ -38,7 +40,7 @@ public class PlayerData : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        Destroy(this.gameObject);
+        isDead = true;
     }
 
     public void TakeDamage(float damage)

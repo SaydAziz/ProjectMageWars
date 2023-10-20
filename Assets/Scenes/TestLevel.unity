@@ -3723,6 +3723,7 @@ MonoBehaviour:
   playerData: {fileID: 1754398109}
   leftHand: {fileID: 1808923396}
   rightHand: {fileID: 842973470}
+  isDead: 0
 --- !u!114 &1754398106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3832,7 +3833,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1754398104}
         m_TargetAssemblyTypeName: PlayerInput, Assembly-CSharp
-        m_MethodName: ToggleMenu
+        m_MethodName: MenuInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3901,6 +3902,7 @@ MonoBehaviour:
   leftHand: {fileID: 11400000, guid: 88ebf973c5c2807499e72cadfa81ce8a, type: 2}
   rightHand: {fileID: 11400000, guid: 88ebf973c5c2807499e72cadfa81ce8a, type: 2}
   vController: {fileID: 1754398108}
+  isDead: 0
 --- !u!1 &1754888069
 GameObject:
   m_ObjectHideFlags: 0

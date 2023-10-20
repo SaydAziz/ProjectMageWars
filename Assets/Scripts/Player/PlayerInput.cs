@@ -24,7 +24,45 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (controller.isDead)
+        {
+            if (contEnabled)
+            {
+                ToggleMenu(true);
+            }
+        }
+    }
+
+
+    private void ToggleMenu()
+    {
+        menu.ToggleGameMenu();
+
+        contEnabled = contEnabled ? false : true;
+
+        if (contEnabled)
+        {
+            pi.actions.FindAction("Look").Enable();
+        }
+        else
+        {
+            pi.actions.FindAction("Look").Disable();
+        }
+    }
+    private void ToggleMenu(bool turnOn)
+    {
+        menu.ToggleGameMenu(turnOn);
+
+        contEnabled = !turnOn;
+
+        if (contEnabled)
+        {
+            pi.actions.FindAction("Look").Enable();
+        }
+        else
+        {
+            pi.actions.FindAction("Look").Disable();
+        }
     }
 
     public void LookInput(InputAction.CallbackContext context)
@@ -63,22 +101,11 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    public void ToggleMenu(InputAction.CallbackContext context)
+    public void MenuInput(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            menu.ToggleGameMenu();
-
-            contEnabled = contEnabled ? false : true;
-
-            if (contEnabled)
-            {
-                pi.actions.FindAction("Look").Enable();
-            }
-            else
-            {
-                pi.actions.FindAction("Look").Disable();
-            }
+            ToggleMenu();
         }
     }
 }

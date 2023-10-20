@@ -33,6 +33,23 @@ public class Menu : MonoBehaviour
 
         }
     }
+    public void ToggleGameMenu(bool turnOn)
+    {
+        menuOn = turnOn;
+        this.gameObject.SetActive(menuOn);
+        Cursor.visible = menuOn;
+        if (menuOn)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1;
+
+        }
+    }
     public void SwitchToLevelCanvas()
     {
         currentCanvas.SetActive(false);

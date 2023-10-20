@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
@@ -7,6 +8,10 @@ using UnityEngine.InputSystem.XR;
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField] PlayerController controller;
+    [SerializeField] UnityEngine.InputSystem.PlayerInput pi;
+    [SerializeField] Menu menu;
+
+    bool contEnabled = true;
     
     
     // Start is called before the first frame update
@@ -55,6 +60,25 @@ public class PlayerInput : MonoBehaviour
         else if (context.canceled)
         {
             controller.UseRight();
+        }
+    }
+
+    public void ToggleMenu(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            menu.ToggleGameMenu();
+
+            contEnabled = contEnabled ? false : true;
+
+            if (contEnabled)
+            {
+                pi.actions.FindAction("Look").Enable();
+            }
+            else
+            {
+                pi.actions.FindAction("Look").Disable();
+            }
         }
     }
 }

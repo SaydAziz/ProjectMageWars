@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     float xRot, yRot;
 
     //Move Values
-    float moveSpeed = 10f;
+    float moveSpeed = 8.5f;
     float xDir, yDir;
     Vector3 moveDir;
 
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     float airMultiplier;
 
     //Ability Values
-    float dashSpeed = 20f;
+    float dashSpeed = 15f;
     float dashCD = 2f;
 
 
@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
             cachedWall = hitWalls[0];
             canJump = false;
             rb.velocity = Vector3.zero;
-            rb.AddForce((transform.up * jumpHeight) + transform.forward * jumpHeight, ForceMode.Impulse);
+            rb.AddForce((transform.up * jumpHeight * 0.95f) + transform.forward * jumpHeight, ForceMode.Impulse);
             //vController.TempFovChange(92, 0.5f);
 
             Invoke(nameof(ResetJump), jumpCD);

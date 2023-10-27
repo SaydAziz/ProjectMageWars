@@ -12,7 +12,7 @@ public class CentipedeEnemy : EnemyController
     {
         attackCD = .5f;
         roamRange = 10;
-        sightRange = 15;
+        sightRange = 40;
         attackRange = 2;
         agent.speed = 5;
     }

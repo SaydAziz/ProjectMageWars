@@ -4,31 +4,31 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Timeline;
 
-public class EnemyController : MonoBehaviour, IDamageable
+public abstract class EnemyController : MonoBehaviour, IDamageable
 {
-    [SerializeField] GameObject player;
-    [SerializeField] NavMeshAgent agent;
-    [SerializeField] LayerMask groundLayer, playerLayer;
-    [SerializeField] Transform spellSpawn;
-    [SerializeField] Spell spell;
+    [SerializeField] protected GameObject player;
+    [SerializeField] protected NavMeshAgent agent;
+    [SerializeField] protected LayerMask groundLayer, playerLayer;
+    [SerializeField] protected Transform spellSpawn;
+    [SerializeField] protected Spell spell;
 
-    bool noAttackCD = true;
-    float attackCD = 2f;
+    protected bool noAttackCD = true;
+    protected float attackCD = 2f;
 
-    Vector3 destPoint;
-    bool hasDest;
-    float roamRange = 30;
-    float sightRange = 15;
-    float attackRange = 10;
-    bool seesPlayer, canAttack;
+    protected Vector3 destPoint;
+    protected bool hasDest;
+    protected float roamRange = 30;
+    protected float sightRange = 15;
+    protected float attackRange = 10;
+    protected bool seesPlayer, canAttack;
     public float health { get; set; }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         health = 100;
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         seesPlayer = Physics.CheckSphere(transform.position, sightRange, playerLayer);
         canAttack = Physics.CheckSphere(transform.position, attackRange, playerLayer);
@@ -50,7 +50,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         }
     }
 
-    void Attack()
+    protected virtual void Attack()
     {
         if (noAttackCD)
         {
@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         }     
     }
 
-    void Roam()
+    protected virtual void Roam()
     {
         if (!hasDest)
         {
@@ -76,7 +76,7 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     }
 
-    void SearchDest()
+    protected virtual void SearchDest()
     {
         float z = Random.Range(-roamRange, roamRange);
         float x = Random.Range(-roamRange, roamRange);

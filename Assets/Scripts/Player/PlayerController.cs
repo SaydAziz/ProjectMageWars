@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
             canJump = false;
             rb.velocity = Vector3.zero;
             rb.AddForce((transform.up * jumpHeight * 0.95f) + transform.forward * jumpHeight, ForceMode.Impulse);
-            //vController.TempFovChange(92, 0.5f);
+            vController.TempFovChange(92, 0.5f);
 
             Invoke(nameof(ResetJump), jumpCD);
         }
@@ -151,7 +151,7 @@ public class PlayerController : MonoBehaviour
             canDash = false;
             rb.velocity = Vector3.zero;
             rb.AddForce(((transform.forward * yDir + transform.right * xDir) + transform.up * .2f) * dashSpeed, ForceMode.Impulse);
-            //vController.TempFovChange(92, 0.5f);
+            vController.TempFovChange(105, 0.1f);
             Invoke(nameof(ResetDash), dashCD);
         }
         

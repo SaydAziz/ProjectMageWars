@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class VisualController : MonoBehaviour
 {
@@ -25,15 +26,13 @@ public class VisualController : MonoBehaviour
 
     public void TempFovChange(int fov, float time)
     {
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, fov, 2f);
-        //cam.fieldOfView = fov;
+        cam.DOFieldOfView(fov, time);
         Invoke(nameof(ResetFOV), time);
     }
 
     private void ResetFOV()
     {
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 90, 2f);
-        //cam.fieldOfView = 90;
+        cam.DOFieldOfView(90, 0.2f);
     }
 
     public void UpdateHealth(float value)

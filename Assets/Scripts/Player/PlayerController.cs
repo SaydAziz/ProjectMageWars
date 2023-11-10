@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -69,6 +70,17 @@ public class PlayerController : MonoBehaviour
 
         hitWalls = Physics.OverlapCapsule(transform.position + transform.right * 0.4f - transform.forward * 0.3f, transform.position - transform.right * 0.4f - transform.forward * 0.3f, .3f, groundLayer);
         //nearWall = Physics.CheckCapsule(transform.position + transform.right * 0.4f - transform.forward * 0.3f, transform.position - transform.right * 0.4f - transform.forward * 0.3f, .3f, groundLayer);
+
+        if ((hitWalls.Length > 0) && canJump && !CheckWall(hitWalls[0]) && !isGrounded) //this is a redundant check with walljump input check
+        {
+            vController.AddVignette(1f);
+        }
+        else
+        {
+            vController.AddVignette(-0.3f);
+
+        }
+
 
         if (isGrounded)
         {

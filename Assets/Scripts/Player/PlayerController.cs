@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
     [SerializeField] VisualController vController;
+    [SerializeField] ViewModel viewModel;
     [SerializeField] PlayerData playerData;
     [SerializeField] Transform leftHand, rightHand;
     Camera cam;
@@ -99,6 +100,10 @@ public class PlayerController : MonoBehaviour
         moveDir = transform.forward * yDir + transform.right * xDir;
         rb.AddForce(moveDir.normalized *  moveSpeed * airMultiplier * 10f, ForceMode.Force);
         transform.rotation = Quaternion.Euler(0, yRot, 0);
+
+        if (rb.velocity.magnitude > 1) viewModel.doBOB();
+            
+
         //Debug.Log(isGrounded);
 
     }
@@ -124,6 +129,7 @@ public class PlayerController : MonoBehaviour
     }
     public void GetLookInput(Vector2 value)
     {
+        viewModel.setInputVal(value);
         yRot += value.x * mouseSensitivity; 
 
         xRot -= value.y * mouseSensitivity;

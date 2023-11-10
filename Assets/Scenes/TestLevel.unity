@@ -3385,6 +3385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1427534376}
+  - component: {fileID: 1427534377}
   m_Layer: 3
   m_Name: fpsVisuals
   m_TagString: Untagged
@@ -3410,6 +3411,18 @@ Transform:
   - {fileID: 2024857580}
   m_Father: {fileID: 758917802}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1427534377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427534375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 556f49cca87cfcb48b4939255f743393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1445174858
 GameObject:
   m_ObjectHideFlags: 0
@@ -4051,6 +4064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1754398103}
   vController: {fileID: 1754398108}
+  viewModel: {fileID: 1427534377}
   playerData: {fileID: 1754398109}
   leftHand: {fileID: 1808923396}
   rightHand: {fileID: 842973470}

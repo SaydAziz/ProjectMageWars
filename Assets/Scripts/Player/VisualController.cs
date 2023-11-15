@@ -11,8 +11,8 @@ public class VisualController : MonoBehaviour
     Camera cam;
     public Animator handAnims;
     [SerializeField] Slider healthBar;
-    [SerializeField] PostProcessVolume ppVol;
-    [SerializeField] Vignette vignette;
+    [SerializeField] PostProcessVolume ppVol1, ppVol2;
+    Vignette leftVignette, rightVignette;
 
 
     bool vignetteOn;
@@ -22,7 +22,8 @@ public class VisualController : MonoBehaviour
         cam = Camera.main;
         cam.fieldOfView = 90;
         vignetteOn = false;
-        ppVol.profile.TryGetSettings(out vignette);
+        ppVol1.profile.TryGetSettings(out leftVignette);
+        ppVol2.profile.TryGetSettings(out rightVignette);
     }
 
     // Update is called once per frame
@@ -31,9 +32,28 @@ public class VisualController : MonoBehaviour
         
     }
 
-    public void AddVignette(float val)
+    public void AddVignette(float val, int side)
     {
-        vignette.opacity.value = val;
+        if (side == 0)
+        {
+            ppVol1.priority = 1;
+            leftVignette.opacity.value = val;
+        }
+        else if (side == 1)
+        {
+            ppVol2.priority = 1;
+            rightVignette.opacity.value = val;
+        }
+    }
+
+    public void RemoveVignette()
+    {
+        leftVignette.opacity.value = -0.03f;
+        rightVignette.opacity.value = -0.03f;
+        ppVol1.priority = 0;
+        ppVol2.priority = 0;
+
+
     }
 
     public void TempFovChange(int fov, float time)

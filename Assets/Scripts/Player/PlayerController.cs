@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform leftHand, rightHand;
     Camera cam;
     LayerMask groundLayer;
-    Collider[] hitWalls;
+    Collider[] hitWallsR, hitWallsL, currentHitWall;
     Collider cachedWall;
 
     //Look Values
@@ -69,17 +69,24 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics.CheckBox(transform.position - transform.up * .7f, new Vector3(.3f, .4f, .3f), Quaternion.identity, groundLayer);
         //isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.2f, groundLayer);
 
-        hitWalls = Physics.OverlapCapsule(transform.position + transform.right * 0.4f - transform.forward * 0.3f, transform.position - transform.right * 0.4f - transform.forward * 0.3f, .3f, groundLayer);
+        hitWallsR = Physics.OverlapCapsule(transform.position + transform.right * 0.4f - transform.forward * 0.3f, transform.position + transform.right * 0.3f - transform.forward * 0.3f, .3f, groundLayer);
+        hitWallsL = Physics.OverlapCapsule(transform.position - transform.right * 0.4f - transform.forward * 0.3f, transform.position - transform.right * 0.3f - transform.forward * 0.3f, .3f, groundLayer);
         //nearWall = Physics.CheckCapsule(transform.position + transform.right * 0.4f - transform.forward * 0.3f, transform.position - transform.right * 0.4f - transform.forward * 0.3f, .3f, groundLayer);
 
-        if ((hitWalls.Length > 0) && canJump && !CheckWall(hitWalls[0]) && !isGrounded) //this is a redundant check with walljump input check
+        if (CheckHitWallColliders() && canJump && !CheckWall(currentHitWall[0]) && !isGrounded) //this is a redundant check with walljump input check
         {
-            vController.AddVignette(1f);
+            if (hitWallsL.Length > 0)
+            {
+                vController.AddVignette(1f, 0);
+            }
+            else if (hitWallsR.Length > 0)
+            {
+                vController.AddVignette(1f, 1);
+            }
         }
         else
         {
-            vController.AddVignette(-0.3f);
-
+            vController.RemoveVignette();
         }
 
 
@@ -104,7 +111,7 @@ public class PlayerController : MonoBehaviour
         if (rb.velocity.magnitude > 1) viewModel.doBOB();
             
 
-        //Debug.Log(isGrounded);
+        Debug.Log(isGrounded);
 
     }
 
@@ -151,9 +158,9 @@ public class PlayerController : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCD);
         }
-        else if ((hitWalls.Length > 0) && canJump && !CheckWall(hitWalls[0]))
+        else if (CheckHitWallColliders() && canJump && !CheckWall(currentHitWall[0]))
         {
-            cachedWall = hitWalls[0];
+            cachedWall = currentHitWall[0];
             canJump = false;
             rb.velocity = Vector3.zero;
             rb.AddForce((transform.up * jumpHeight * 0.95f) + transform.forward * jumpHeight, ForceMode.Impulse);
@@ -188,6 +195,22 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    
+    bool CheckHitWallColliders()
+    {
+        if (hitWallsL.Length > 0)
+        {
+            currentHitWall = hitWallsL;
+        }
+        else if (hitWallsR.Length > 0)
+        {
+            currentHitWall = hitWallsR;
+        }
+        else
+        {
+            return false;
+        }    
+        return true;
+
+    }
 
 }

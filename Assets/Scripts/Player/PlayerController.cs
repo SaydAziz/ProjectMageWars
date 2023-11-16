@@ -36,8 +36,10 @@ public class PlayerController : MonoBehaviour
 
     //State Info
     bool isGrounded;
+    bool isQueuedRight;
     bool canJump = true;
     bool canDash = true;
+    bool canShootRight = true;
     public bool isDead = false;
 
     // Start is called before the first frame update
@@ -115,6 +117,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void ResetShootRight()
+    {
+        canShootRight = true;
+        isQueuedRight = false;
+    }
     private void ResetJump()
     {
         canJump = true;
@@ -171,9 +178,10 @@ public class PlayerController : MonoBehaviour
     }
     public void GetDashInput()
     {
-        if (canDash)
+        if (canDash && rb.velocity.magnitude > 0.5f)
         {
             canDash = false;
+            rb.drag = 0;
             rb.velocity = Vector3.zero;
             rb.AddForce(((transform.forward * yDir + transform.right * xDir) + transform.up * .4f) * dashSpeed, ForceMode.Impulse);
             vController.TogglePpWeight(.3f);
@@ -185,15 +193,25 @@ public class PlayerController : MonoBehaviour
 
     public void QueueRight()
     {
-        playerData.rightHand.Queue(rightHand.transform);
-        vController.handAnims.SetBool("Queued", true);
+        if (canShootRight)
+        {
+            canShootRight = false;
+            isQueuedRight = true;
+            playerData.rightHand.Queue(rightHand.transform);
+            vController.handAnims.SetBool("Queued", true);
+            
+        }
     }
 
     public void UseRight()
     {
-        playerData.rightHand.Use();
-        vController.handAnims.SetBool("Queued", false);
-
+       if (isQueuedRight)
+       {
+            playerData.rightHand.Use();
+            vController.handAnims.SetBool("Queued", false);
+            Invoke(nameof(ResetShootRight), playerData.rightHand.useCooldown);
+       }
+        
     }
 
     bool CheckHitWallColliders()

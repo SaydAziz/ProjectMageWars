@@ -6,7 +6,7 @@ using UnityEngine;
 public class ProjectileSpell : Spell
 {
     public float travelSpeed;
-    private GameObject spellCache;
+    public GameObject spellCache;
     private Projectile projectile;
 
     public void Start()
@@ -25,6 +25,8 @@ public class ProjectileSpell : Spell
     {
         projectile.Shoot();
         spellCache.transform.Rotate(-90, 0, 0);
+        projectile = null;
+        spellCache = null;
 
     }
 }

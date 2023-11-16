@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     float airMultiplier;
 
     //Ability Values
-    float dashSpeed = 15f;
+    float dashSpeed = 20f;
     float dashCD = 2f;
 
 
@@ -175,8 +175,9 @@ public class PlayerController : MonoBehaviour
         {
             canDash = false;
             rb.velocity = Vector3.zero;
-            rb.AddForce(((transform.forward * yDir + transform.right * xDir) + transform.up * .2f) * dashSpeed, ForceMode.Impulse);
-            vController.TempFovChange(105, 0.1f);
+            rb.AddForce(((transform.forward * yDir + transform.right * xDir) + transform.up * .4f) * dashSpeed, ForceMode.Impulse);
+            vController.TogglePpWeight(.3f);
+            vController.TempFovChange(105, 0.2f);
             Invoke(nameof(ResetDash), dashCD);
         }
         

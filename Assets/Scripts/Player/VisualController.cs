@@ -11,8 +11,12 @@ public class VisualController : MonoBehaviour
     Camera cam;
     public Animator handAnims;
     [SerializeField] Slider healthBar;
-    [SerializeField] PostProcessVolume ppVol1, ppVol2;
+    [SerializeField] PostProcessVolume ppVol0, ppVol1, ppVol2;
     Vignette leftVignette, rightVignette;
+    ChromaticAberration chrome;
+    Grain gran;
+    Bloom bloom;
+    LensDistortion lensDistortion;
 
 
     bool vignetteOn;
@@ -30,6 +34,12 @@ public class VisualController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void TogglePpWeight(float time)
+    {
+        DOTween.To(() => ppVol0.weight, x => ppVol0.weight = x, 1f, time);
+        Invoke(nameof(ResetWeight), time);
     }
 
     public void AddVignette(float val, int side)
@@ -60,6 +70,10 @@ public class VisualController : MonoBehaviour
     {
         cam.DOFieldOfView(fov, time);
         Invoke(nameof(ResetFOV), time);
+    }
+    private void ResetWeight()
+    {
+        DOTween.To(() => ppVol0.weight, x => ppVol0.weight = x, 0.01f, 0.1f);
     }
 
     private void ResetFOV()

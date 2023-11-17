@@ -11,6 +11,8 @@ public class PlayerData : MonoBehaviour, IDamageable
     public float health { get; set; }
 
     public bool isDead = false;
+    public bool canDash = true; //probably should get set this stuff
+
 
     private void Start()
     {
@@ -28,6 +30,7 @@ public class PlayerData : MonoBehaviour, IDamageable
         {
             Die();
         }
+        vController.SetDashIcon(canDash);
     }
 
     public void EquipSpell(Spell spell, bool isLeft)

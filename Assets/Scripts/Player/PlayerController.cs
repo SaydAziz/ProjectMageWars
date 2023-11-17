@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
     bool rightBuffered;
 
     bool canJump = true;
-    bool canDash = true;
     bool canShootRight = true;
     public bool isDead = false;
 
@@ -128,7 +127,7 @@ public class PlayerController : MonoBehaviour
     }
     private void ResetDash()
     {
-        canDash = true;
+        playerData.canDash = true;
     }
     private bool CheckWall(Collider currentWall)
     {
@@ -178,9 +177,9 @@ public class PlayerController : MonoBehaviour
     }
     public void GetDashInput()
     {
-        if (canDash && rb.velocity.magnitude > 0.5f)
+        if (playerData.canDash && rb.velocity.magnitude > 0.5f)
         {
-            canDash = false;
+            playerData.canDash = false;
             rb.drag = 0;
             rb.velocity = Vector3.zero;
             rb.AddForce(((transform.forward * yDir + transform.right * xDir) + transform.up * .4f) * dashSpeed, ForceMode.Impulse);

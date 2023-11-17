@@ -11,6 +11,7 @@ public class VisualController : MonoBehaviour
     Camera cam;
     public Animator handAnims;
     [SerializeField] Slider healthBar;
+    [SerializeField] Image dashIcon;
     [SerializeField] PostProcessVolume ppVol0, ppVol1, ppVol2;
     Vignette leftVignette, rightVignette;
     ChromaticAberration chrome;
@@ -31,7 +32,7 @@ public class VisualController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
     }
@@ -84,5 +85,10 @@ public class VisualController : MonoBehaviour
     public void UpdateHealth(float value)
     {
         healthBar.value = value;
+    }
+
+    public void SetDashIcon(bool val)
+    {
+        dashIcon.enabled = val;
     }
 }

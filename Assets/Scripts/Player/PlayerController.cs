@@ -221,13 +221,13 @@ public class PlayerController : MonoBehaviour
             playerData.rightHand.Use(cam.transform.forward);
             vController.handAnims.SetBool("Queued", false);
             Invoke(nameof(ResetShootRight), playerData.rightHand.useCooldown);
-        }
+       }
        else
-       {    
+       {
+            ResetShootRight();
             CancelInvoke(nameof(DORightQueue));
             vController.handAnims.SetBool("Queued", false);
-            vController.handAnims.SetTrigger(1);
-            ResetShootRight();
+            vController.handAnims.SetTrigger(1);    
        }
         
     }
@@ -240,6 +240,7 @@ public class PlayerController : MonoBehaviour
         {
             QueueRight();
         }
+        rightBuffered = false;
     }
 
     bool CheckHitWallColliders()

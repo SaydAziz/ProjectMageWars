@@ -66,6 +66,10 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void StartCampaignLevel()
+    {
+        SceneManager.LoadScene(2);
+    }
     public void StartMainMenu()
     {
         SceneManager.LoadScene(0);

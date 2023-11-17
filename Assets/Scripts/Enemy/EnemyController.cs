@@ -26,6 +26,8 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
     protected virtual void Awake()
     {
         health = 100;
+        player = GameObject.Find("Player");
+
     }
 
     protected virtual void FixedUpdate()

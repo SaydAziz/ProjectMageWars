@@ -29,5 +29,9 @@ public class ProjectileSpell : Spell
         spellCache = null;
 
     }
+    public override void Discard()
+    {
+        Destroy(spellCache);
+    }
 }
         

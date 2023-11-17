@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     //State Info
     bool isGrounded;
     bool isQueuedRight;
+    bool isPreppedRight;
     bool canJump = true;
     bool canDash = true;
     bool canShootRight = true;
@@ -121,6 +122,7 @@ public class PlayerController : MonoBehaviour
     {
         canShootRight = true;
         isQueuedRight = false;
+        isPreppedRight = false;
     }
     private void ResetJump()
     {
@@ -197,21 +199,33 @@ public class PlayerController : MonoBehaviour
         {
             canShootRight = false;
             isQueuedRight = true;
-            playerData.rightHand.Queue(rightHand.transform);
             vController.handAnims.SetBool("Queued", true);
-            
+            Invoke(nameof(DORightQueue), playerData.rightHand.queueTime);
+
         }
+    }
+
+    private void DORightQueue()
+    {
+        playerData.rightHand.Queue(rightHand.transform);
+        isPreppedRight = true;
     }
 
     public void UseRight()
     {
-       if (isQueuedRight)
+       if (isQueuedRight && isPreppedRight)
        {
             playerData.rightHand.Use(cam.transform.forward);
             vController.handAnims.SetBool("Queued", false);
-            Invoke(nameof(ResetShootRight), playerData.rightHand.useCooldown);
        }
-        
+       else
+       {
+            CancelInvoke(nameof(DORightQueue));
+            vController.handAnims.SetBool("Queued", false);
+            vController.handAnims.SetTrigger(1);
+       }
+        vController.handAnims.SetBool("Queued", false);
+        Invoke(nameof(ResetShootRight), playerData.rightHand.useCooldown);
     }
 
     bool CheckHitWallColliders()

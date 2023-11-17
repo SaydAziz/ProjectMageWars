@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8cf290d4ef952c45b26174afcd9236e, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  useCooldown: 1
+  useCooldown: 0.5
   timeAlive: 2
   healthChange: 20
   prefab: {fileID: 4642234107294400351, guid: bb9336266340205479522842c547eaa5, type: 3}
-  travelSpeed: 40
+  travelSpeed: 50
   spellCache: {fileID: 0}

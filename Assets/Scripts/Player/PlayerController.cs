@@ -216,7 +216,8 @@ public class PlayerController : MonoBehaviour
 
     public void UseRight()
     {
-       if (isQueuedRight && isPreppedRight)
+        rightBuffered = false;
+        if (isQueuedRight && isPreppedRight)
        {
             playerData.rightHand.Use(cam.transform.forward);
             vController.handAnims.SetBool("Queued", false);
@@ -240,7 +241,7 @@ public class PlayerController : MonoBehaviour
         {
             QueueRight();
         }
-        rightBuffered = false;
+        rightBuffered = false; //need to figure out if all of these buffer resets are needed lol
     }
 
     bool CheckHitWallColliders()

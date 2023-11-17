@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Enemy Fireball
   m_EditorClassIdentifier: 
   useCooldown: 1
+  queueTime: 0
   timeAlive: 2
   healthChange: 20
   prefab: {fileID: 4642234107294400351, guid: bdad29df99a8fa549aebdc5fb2e9c81f, type: 3}
-  travelSpeed: 65
+  travelSpeed: 55
+  spellCache: {fileID: 0}

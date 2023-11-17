@@ -60,7 +60,7 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
             Debug.Log("BANG BANG");
             spell.Queue(spellSpawn.transform);
             spell.Use(transform.forward);
-            Invoke("resetAttack", attackCD);
+            Invoke("resetAttack", spell.useCooldown);
         }     
     }
 

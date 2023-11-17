@@ -7,10 +7,10 @@ public class GhostEnemy : EnemyController
     // Start is called before the first frame update
     void Start()
     {
-        attackCD = 2f;
+        //attackCD = 2f;
         roamRange = 30;
-        sightRange = 15;
-        attackRange = 10;
+        sightRange = 50;
+        attackRange = 25;
     }
 
     protected override void Awake()

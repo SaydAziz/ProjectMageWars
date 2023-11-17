@@ -15,7 +15,7 @@ MonoBehaviour:
   useCooldown: 0.5
   queueTime: 0.3
   timeAlive: 2
-  healthChange: 20
+  healthChange: 35
   prefab: {fileID: 4642234107294400351, guid: bb9336266340205479522842c547eaa5, type: 3}
   travelSpeed: 50
   spellCache: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4271847144713644432}
   - component: {fileID: 9063120925825386853}
   - component: {fileID: 6916710699680768430}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4848,7 +4848,7 @@ GameObject:
   - component: {fileID: 215295525707980104}
   - component: {fileID: 9211289989574962478}
   - component: {fileID: 186455829768135790}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Fire_Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9689,7 +9689,7 @@ GameObject:
   - component: {fileID: 3806904632105672125}
   - component: {fileID: 7988841801000867405}
   - component: {fileID: 7628214562879767391}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Fire_Orb_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14526,7 +14526,7 @@ GameObject:
   - component: {fileID: 2995899769106925342}
   - component: {fileID: 8891222137203402187}
   - component: {fileID: 4044331867800843702}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: OuterGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19354,7 +19354,7 @@ GameObject:
   - component: {fileID: 7794054314481634345}
   - component: {fileID: 1967395065266853927}
   - component: {fileID: 2491957860399240909}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}

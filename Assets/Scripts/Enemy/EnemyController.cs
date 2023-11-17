@@ -57,7 +57,7 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
             noAttackCD = false;
             Debug.Log("BANG BANG");
             spell.Queue(spellSpawn.transform);
-            spell.Use();
+            spell.Use(transform.forward);
             Invoke("resetAttack", attackCD);
         }     
     }

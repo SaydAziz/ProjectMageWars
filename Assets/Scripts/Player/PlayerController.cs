@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
     {
        if (isQueuedRight)
        {
-            playerData.rightHand.Use();
+            playerData.rightHand.Use(cam.transform.forward);
             vController.handAnims.SetBool("Queued", false);
             Invoke(nameof(ResetShootRight), playerData.rightHand.useCooldown);
        }

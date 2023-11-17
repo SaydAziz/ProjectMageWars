@@ -1449,7 +1449,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3bd90602b7eea754992cedcd9d6d625b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -7010559638576489092, guid: 45e88b9826944164ca9178e5960227b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 842973470}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 45e88b9826944164ca9178e5960227b1, type: 3}
       insertIndex: -1
@@ -1916,6 +1919,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1255ebf5913352e4c8d3d2ab9928d057, type: 3}
   m_PrefabInstance: {fileID: 943101472}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &837175500 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7010559638576489092, guid: 45e88b9826944164ca9178e5960227b1, type: 3}
+  m_PrefabInstance: {fileID: 540722235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &838003412 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -516098083770646512, guid: 1255ebf5913352e4c8d3d2ab9928d057, type: 3}
@@ -1967,13 +1975,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842973469}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000052154064, y: 0.000000014388365, z: -0.000000017104835, w: 1}
-  m_LocalPosition: {x: 0.274, y: 0.291, z: -0.525}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.717925, y: 0.4209631, z: -0.5166915, w: 0.20100695}
+  m_LocalPosition: {x: -0.00607, y: 0, z: -0.00263}
+  m_LocalScale: {x: -0.045732196, y: 0.045732185, z: -0.04573219}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1427534376}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 837175500}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 18.522}
 --- !u!1 &865951805 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3540495426589365078, guid: 1255ebf5913352e4c8d3d2ab9928d057, type: 3}
@@ -3507,7 +3515,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1808923396}
-  - {fileID: 842973470}
   - {fileID: 2024857580}
   m_Father: {fileID: 758917802}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

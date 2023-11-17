@@ -12,6 +12,10 @@ public class PlayerData : MonoBehaviour, IDamageable
 
     public bool isDead = false;
 
+    private void Start()
+    {
+    }
+
     private void Awake()
     {
         health = 100;

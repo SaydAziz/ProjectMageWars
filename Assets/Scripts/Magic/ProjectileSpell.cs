@@ -16,15 +16,15 @@ public class ProjectileSpell : Spell
 
     public override void Queue(Transform transform)
     {
-        Debug.Log("QUEUEUEUEUEUUE");
+        //Debug.Log("QUEUEUEUEUEUUE");
         spellCache = Instantiate(prefab, transform);
         projectile = spellCache.GetComponent<Projectile>();
         projectile.SetData(travelSpeed, timeAlive, healthChange);
     }
-    public override void Use()
+    public override void Use(Vector3 useDir)
     {
+        spellCache.transform.rotation = Quaternion.LookRotation(useDir);
         projectile.Shoot();
-        spellCache.transform.Rotate(-90, 0, 0);
         projectile = null;
         spellCache = null;
 

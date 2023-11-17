@@ -13,4 +13,14 @@ public static class FunctionalUtility
             child.gameObject.SetLayerRecursively(layer);
         }
     }
+
+    public static void SetScaleRecursively(this GameObject obj, float scale)
+    {
+        obj.transform.localScale *= scale;
+
+        foreach (Transform child in obj.transform)
+        {
+            child.gameObject.SetScaleRecursively(scale);
+        }
+    }
 }

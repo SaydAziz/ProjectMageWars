@@ -195,6 +195,7 @@ public class PlayerController : MonoBehaviour
     {
         if (canShootRight)
         {
+            rightBuffered = false;
             canShootRight = false;
             isQueuedRight = true;
             vController.handAnims.SetBool("Queued", true);

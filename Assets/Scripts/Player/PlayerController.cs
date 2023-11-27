@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
         if (rb.velocity.magnitude > 1) viewModel.doBOB();
             
 
-        Debug.Log(isGrounded);
+        //Debug.Log(isGrounded);
 
     }
 
@@ -175,9 +175,24 @@ public class PlayerController : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCD);
         }
     }
+
+    private bool VelocityCheck()
+    {
+        Vector3 moddedVel = rb.velocity;
+        moddedVel.y = 0f;
+        if (moddedVel.magnitude > 0.7f)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void GetDashInput()
     {
-        if (playerData.canDash && rb.velocity.magnitude > 0.5f)
+        if (playerData.canDash && VelocityCheck())
         {
             playerData.canDash = false;
             rb.drag = 0;

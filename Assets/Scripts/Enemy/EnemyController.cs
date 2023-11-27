@@ -27,13 +27,15 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
     {
         health = 100;
         player = GameObject.Find("Player");
-
+        playerLayer = LayerMask.NameToLayer("Player");
     }
 
     protected virtual void FixedUpdate()
     {
-        seesPlayer = Physics.CheckSphere(transform.position, sightRange, playerLayer);
-        canAttack = Physics.CheckSphere(transform.position, attackRange, playerLayer);
+        seesPlayer = Vector3.Distance(transform.position, player.transform.position) < sightRange;
+            //Physics.CheckSphere(transform.position, sightRange, playerLayer);
+        canAttack = Vector3.Distance(transform.position, player.transform.position) < attackRange;
+        //Physics.CheckSphere(transform.position, attackRange, playerLayer);
         if (health <= 0) Die();
 
         if (seesPlayer && canAttack)
@@ -54,7 +56,7 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
 
     protected virtual void Attack()
     {
-        if (noAttackCD)
+        if (noAttackCD && CheckLOS())
         {
             noAttackCD = false;
             Debug.Log("BANG BANG");
@@ -90,6 +92,16 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
             hasDest = true;
         }
     }
+
+    protected bool CheckLOS()
+    {
+        RaycastHit hit;
+        Physics.Linecast(transform.position, player.transform.position, out hit);
+        Debug.Log(hit.transform.gameObject.layer + " " + playerLayer);
+        return hit.transform.gameObject.layer == playerLayer;
+
+    }
+
 
     public void TakeDamage(float damage)
     {

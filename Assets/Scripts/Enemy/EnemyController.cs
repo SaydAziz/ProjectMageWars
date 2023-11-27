@@ -41,8 +41,16 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
         if (seesPlayer && canAttack)
         {
             agent.SetDestination(transform.position);
-            transform.LookAt(player.transform.position);
-            Attack();
+            if (noAttackCD)
+            {
+                transform.LookAt(player.transform.position);
+                Attack();
+            }
+            else
+            {
+                Roam();
+            }
+            
         }
         else if (seesPlayer)
         {
@@ -56,7 +64,7 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
 
     protected virtual void Attack()
     {
-        if (noAttackCD && CheckLOS())
+        if (CheckLOS())
         {
             noAttackCD = false;
             Debug.Log("BANG BANG");
@@ -108,7 +116,7 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
         health -= damage;
     }
 
-    private void Die()
+    protected void Die()
     {
         Destroy(this.gameObject);
     }

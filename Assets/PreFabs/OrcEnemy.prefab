@@ -59,7 +59,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 1.47
   m_BaseOffset: 1
-  m_WalkableMask: 8
+  m_WalkableMask: 5
   m_ObstacleAvoidanceType: 4
 --- !u!54 &7202783659223494343
 Rigidbody:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  agent: {fileID: 0}
+  agent: {fileID: 705915998614830901}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -155,7 +155,7 @@ MonoBehaviour:
   spellSpawn: {fileID: 8739620864488720148}
   spell: {fileID: 0}
   hitbox: {fileID: 2067771179324016892}
-  animator: {fileID: 0}
+  animator: {fileID: 3738959390027505943}
 --- !u!95 &3738959390027505943
 Animator:
   serializedVersion: 5

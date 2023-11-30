@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8cf290d4ef952c45b26174afcd9236e, type: 3}
   m_Name: Enemy Fireball
   m_EditorClassIdentifier: 
-  useCooldown: 1
+  useCooldown: 2
   queueTime: 0
   timeAlive: 2
-  healthChange: 20
+  healthChange: 40
   prefab: {fileID: 4642234107294400351, guid: bdad29df99a8fa549aebdc5fb2e9c81f, type: 3}
   travelSpeed: 55
   spellCache: {fileID: 0}

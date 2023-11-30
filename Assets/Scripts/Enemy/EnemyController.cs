@@ -17,7 +17,7 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
 
     protected Vector3 destPoint;
     protected bool hasDest;
-    protected float roamRange = 30;
+    protected float roamRange = 10;
     protected float sightRange = 15;
     protected float attackRange = 10;
     protected bool seesPlayer, canAttack;
@@ -35,14 +35,14 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
         seesPlayer = Vector3.Distance(transform.position, player.transform.position) < sightRange;
             //Physics.CheckSphere(transform.position, sightRange, playerLayer);
         canAttack = Vector3.Distance(transform.position, player.transform.position) < attackRange;
-        //Physics.CheckSphere(transform.position, attackRange, playerLayer);
+            //Physics.CheckSphere(transform.position, attackRange, playerLayer);
         if (health <= 0) Die();
 
         if (seesPlayer && canAttack)
-        {
-            agent.SetDestination(transform.position);
-            if (noAttackCD)
+        {        
+            if (noAttackCD && CheckLOS())
             {
+                agent.SetDestination(transform.position);
                 transform.LookAt(player.transform.position);
                 Attack();
             }
@@ -64,18 +64,16 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
 
     protected virtual void Attack()
     {
-        if (CheckLOS())
-        {
             noAttackCD = false;
-            Debug.Log("BANG BANG");
+            //Debug.Log("BANG BANG");
             spell.Queue(spellSpawn.transform);
             spell.Use(transform.forward);
-            Invoke("resetAttack", spell.useCooldown);
-        }     
+            Invoke("resetAttack", spell.useCooldown);    
     }
 
     protected virtual void Roam()
     {
+        Debug.Log("roaming");
         if (!hasDest)
         {
             SearchDest();
@@ -93,7 +91,7 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
         float z = Random.Range(-roamRange, roamRange);
         float x = Random.Range(-roamRange, roamRange);
 
-        destPoint = new Vector3(transform.position.x + x, transform.position.y, transform.position.z);
+        destPoint = new Vector3(transform.position.x + x, transform.position.y, transform.position.z + z);
 
         if (Physics.Raycast(destPoint, Vector3.down, groundLayer))
         {
@@ -105,7 +103,7 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
     {
         RaycastHit hit;
         Physics.Linecast(transform.position, player.transform.position, out hit);
-        Debug.Log(hit.transform.gameObject.layer + " " + playerLayer);
+        //Debug.Log(hit.transform.gameObject.layer + " " + playerLayer);
         return hit.transform.gameObject.layer == playerLayer;
 
     }

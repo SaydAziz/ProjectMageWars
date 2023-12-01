@@ -194,6 +194,7 @@ public class PlayerController : MonoBehaviour
     {
         if (playerData.canDash && VelocityCheck())
         {
+            PlayerAudioManager.Instance.PlayDashSFX();
             playerData.canDash = false;
             rb.drag = 0;
             rb.velocity = Vector3.zero;

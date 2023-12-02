@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
     {
         if (playerData.canDash && VelocityCheck())
         {
-            PlayerAudioManager.Instance.PlayDashSFX();
+            PlayerAudioManager.Instance.PlaySoundClip("Dash");
             playerData.canDash = false;
             rb.drag = 0;
             rb.velocity = Vector3.zero;
@@ -226,6 +226,8 @@ public class PlayerController : MonoBehaviour
     private void DORightQueue()
     {
         playerData.rightHand.Queue(rightHand.transform);
+        //Signal Hold AUdio
+        PlayerAudioManager.Instance.PlaySoundClip("FireballHold");
         isPreppedRight = true;
     }
 
@@ -236,6 +238,8 @@ public class PlayerController : MonoBehaviour
        {
             playerData.rightHand.Use(cam.transform.forward);
             vController.handAnims.SetBool("Queued", false);
+            //Signal Shot Fireball Audio
+            PlayerAudioManager.Instance.PlaySoundClip("FireballRelease");
             Invoke(nameof(ResetShootRight), playerData.rightHand.useCooldown);
        }
        else

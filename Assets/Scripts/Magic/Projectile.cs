@@ -11,6 +11,9 @@ public class Projectile : MonoBehaviour
 
     float travelSpeed, deathTimer, damage;
 
+    [SerializeField]
+    AudioClip ImpactSFX;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -32,6 +35,7 @@ public class Projectile : MonoBehaviour
         {
             collision.gameObject.GetComponent<IDamageable>().TakeDamage(damage);
         }
+        WorldAudioManager.Instance.PlaySoundAtPoint(ImpactSFX, transform.position, 0.1f);
         Destroy(this.gameObject);
     }
 

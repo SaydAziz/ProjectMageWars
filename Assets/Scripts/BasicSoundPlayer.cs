@@ -7,15 +7,17 @@ using UnityEngine;
 public struct AudioData
 {
     [SerializeField]
-    List<AudioClip> Clips;
-    [SerializeField]
     public string ID;
+    [SerializeField]
+    List<AudioClip> Clips;
     [SerializeField]
     public float randomPitchOffset;
     [SerializeField]
     public bool looping;
     [SerializeField]
     public float stereoPan;
+    [SerializeField]
+    public PlayerSoundType soundType;
 
     public AudioClip GetRandomClip()
     {

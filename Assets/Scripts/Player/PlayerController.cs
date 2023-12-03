@@ -4,6 +4,8 @@ using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
@@ -44,6 +46,12 @@ public class PlayerController : MonoBehaviour
     bool canJump = true;
     bool canShootRight = true;
     public bool isDead = false;
+
+    //Footstep Audio Trigger Values
+    byte currentFixedTick;
+    byte footstepSFXTriggerRate = 20;
+    bool previousGroundedState;
+
 
     // Start is called before the first frame update
     void Start()
@@ -113,14 +121,25 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(moveDir.normalized *  moveSpeed * airMultiplier * 10f, ForceMode.Force);
         transform.rotation = Quaternion.Euler(0, yRot, 0);
 
-        if (rb.velocity.magnitude > 1) viewModel.doBOB();
-            
-
+        if (rb.velocity.magnitude > 1)
+        {
+            viewModel.doBOB();
+            if (isGrounded && currentFixedTick > footstepSFXTriggerRate)
+            {
+                currentFixedTick = 0;
+                PlayerAudioManager.Instance.PlayFootstep("Footsteps");
+            }
+        }
+        if (!previousGroundedState && isGrounded)
+        {
+            PlayerAudioManager.Instance.PlayFootstep("Landed");
+        }
+        currentFixedTick++;
         //Debug.Log(isGrounded);
-
+        previousGroundedState = isGrounded;
     }
 
-    
+ 
     private void ResetJump()
     {
         canJump = true;

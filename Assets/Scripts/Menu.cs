@@ -7,13 +7,17 @@ public class Menu : MonoBehaviour
 {
     public GameObject mainCanvas;
     public GameObject levelCanvas;
-    public GameObject currentCanvas;
+    public GameObject settingsCanvas;
+    GameObject currentCanvas;
+
+    GameSettings gameSettings;
 
     bool menuOn = false;
 
     private void Awake()
     {
         currentCanvas = mainCanvas;
+        gameSettings = GameObject.FindObjectOfType<GameSettings>();
     }
 
     public void ToggleGameMenu()
@@ -55,13 +59,23 @@ public class Menu : MonoBehaviour
         currentCanvas.SetActive(false);
         currentCanvas = levelCanvas;
         levelCanvas.SetActive(true);
+
     }
+    public void SwitchToSettingsCanvas()
+    {
+        currentCanvas.SetActive(false);
+        currentCanvas = settingsCanvas;
+        settingsCanvas.SetActive(true);
+    }
+
+
     public void SwitchToMainCanvas()
     {
         currentCanvas.SetActive(false);
         currentCanvas = mainCanvas;
         mainCanvas.SetActive(true);
     }
+
     public void StartTestLevel()
     {
         SceneManager.LoadScene(1);
@@ -69,9 +83,11 @@ public class Menu : MonoBehaviour
     public void StartCampaignLevel()
     {
         SceneManager.LoadScene(2);
+
     }
     public void StartMainMenu()
     {
+        Destroy(gameSettings.gameObject);
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }

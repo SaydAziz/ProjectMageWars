@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
+using System.IO;
 
 public static class FunctionalUtility
 {
@@ -22,5 +24,38 @@ public static class FunctionalUtility
         {
             child.gameObject.SetScaleRecursively(scale);
         }
+    }
+
+    public static bool SaveData<T>(string path, T data)
+    {
+        try
+        {
+            if (File.Exists(path))
+            {
+                Debug.Log("Replacing existing data file...");
+                File.Delete(path);
+            }
+            else
+            {
+                Debug.Log("Creating new data file...");
+            }
+            using FileStream stream = File.Create(path);
+            stream.Close();
+            File.WriteAllText(path, JsonConvert.SerializeObject(data));
+            return true;
+        }
+        catch
+        {
+            Debug.Log("Failed to save...");
+            return false;
+        }
+    }
+
+    public static T LoadData<T>(string path)
+    {
+        Debug.Log("Loading from data file...");
+        T data = JsonConvert.DeserializeObject<T>(File.ReadAllText(path));
+        return data;
+
     }
 }

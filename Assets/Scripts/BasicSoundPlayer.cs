@@ -1,6 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+[Serializable]
+public struct AudioData
+{
+    [SerializeField]
+    public string ID;
+    [SerializeField]
+    List<AudioClip> Clips;
+    [SerializeField]
+    public float randomPitchOffset;
+    [SerializeField]
+    public bool looping;
+    [SerializeField]
+    public float stereoPan;
+    [SerializeField]
+    public PlayerSoundType soundType;
+
+    public AudioClip GetRandomClip()
+    {
+        return Clips[UnityEngine.Random.Range(0, Clips.Count - 1)];
+    }
+}
 
 [RequireComponent(typeof(AudioSource))]
 public class BasicSoundPlayer : MonoBehaviour
@@ -24,7 +47,7 @@ public class BasicSoundPlayer : MonoBehaviour
 
     public void PlaySound()
     {
-        audioSource.pitch = 1 + Random.Range(-PitchRandomization, PitchRandomization);
+        audioSource.pitch = 1 + UnityEngine.Random.Range(-PitchRandomization, PitchRandomization);
         audioSource.PlayOneShot(getRandomClip(SoundsToPlay));
     }
 
@@ -34,6 +57,22 @@ public class BasicSoundPlayer : MonoBehaviour
         {
             Debug.LogError(clipArray + " has no audio files to play.");
         }
-        return clipArray[Random.Range(0,clipArray.Length)];
+        return clipArray[UnityEngine.Random.Range(0,clipArray.Length)];
+    }
+
+    public void PlayClip(AudioClip clipToPlay, float randomPitchOffset)
+    {
+        if(clipToPlay== null) { return; }
+        audioSource.pitch = 1 + UnityEngine.Random.Range(-randomPitchOffset, randomPitchOffset);
+        audioSource.PlayOneShot(clipToPlay);
+    }
+
+    public void PlayAudioData(AudioData data)
+    {
+        audioSource.clip = data.GetRandomClip();
+        audioSource.panStereo = data.stereoPan;
+        audioSource.pitch = 1 + UnityEngine.Random.Range(-data.randomPitchOffset, data.randomPitchOffset);
+        audioSource.loop = data.looping;
+        audioSource.Play();
     }
 }

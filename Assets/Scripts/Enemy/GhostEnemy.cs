@@ -8,8 +8,8 @@ public class GhostEnemy : EnemyController
     void Start()
     {
         //attackCD = 2f;
-        roamRange = 50;
-        sightRange = 50;
+        roamRange = 10;
+        sightRange = 25;
         attackRange = 25;
     }
 

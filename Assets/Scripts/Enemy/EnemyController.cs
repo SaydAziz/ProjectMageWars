@@ -33,14 +33,14 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
     protected virtual void FixedUpdate()
     {
         seesPlayer = Vector3.Distance(transform.position, player.transform.position) < sightRange;
-            //Physics.CheckSphere(transform.position, sightRange, playerLayer);
+        //Physics.CheckSphere(transform.position, sightRange, playerLayer);
         canAttack = Vector3.Distance(transform.position, player.transform.position) < attackRange;
-            //Physics.CheckSphere(transform.position, attackRange, playerLayer);
+        //Physics.CheckSphere(transform.position, attackRange, playerLayer);
         if (health <= 0) Die();
 
         if (seesPlayer && canAttack)
-        {        
-            if (noAttackCD && CheckLOS())
+        {
+            if (noAttackCD && CheckLOS(player.transform))
             {
                 agent.SetDestination(transform.position);
                 transform.LookAt(player.transform.position);
@@ -50,7 +50,7 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
             {
                 Roam();
             }
-            
+
         }
         else if (seesPlayer)
         {
@@ -64,11 +64,11 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
 
     protected virtual void Attack()
     {
-            noAttackCD = false;
-            //Debug.Log("BANG BANG");
-            spell.Queue(spellSpawn.transform);
-            spell.Use(transform.forward);
-            Invoke("resetAttack", spell.useCooldown);    
+        noAttackCD = false;
+        //Debug.Log("BANG BANG");
+        spell.Queue(spellSpawn.transform);
+        spell.Use(transform.forward);
+        Invoke("resetAttack", spell.useCooldown);
     }
 
     protected virtual void Roam()
@@ -81,8 +81,9 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
         else if (hasDest)
         {
             agent.SetDestination(destPoint);
+            if (agent.velocity.magnitude < 0.1f) hasDest = false;
         }
-        if (Vector3.Distance(transform.position, destPoint) < 10) hasDest = false;
+        if (Vector3.Distance(transform.position, destPoint) < 3) hasDest = false;
 
     }
 
@@ -99,10 +100,10 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
         }
     }
 
-    protected bool CheckLOS()
+    protected bool CheckLOS(Transform targetTrans)
     {
         RaycastHit hit;
-        Physics.Linecast(transform.position, player.transform.position, out hit);
+        Physics.Linecast(transform.position, targetTrans.position, out hit);
         //Debug.Log(hit.transform.gameObject.layer + " " + playerLayer);
         return hit.transform.gameObject.layer == playerLayer;
 

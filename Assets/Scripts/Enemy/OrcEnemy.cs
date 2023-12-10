@@ -12,7 +12,7 @@ public class OrcEnemy : EnemyController
     {
         attackCD = 1f;
         roamRange = 10;
-        sightRange = 30;
+        sightRange = 25;
         attackRange = 3;
         agent.speed = 5;
         health = 50;
@@ -33,7 +33,7 @@ public class OrcEnemy : EnemyController
 
         if (seesPlayer && canAttack)
         {
-            if (noAttackCD && CheckLOS())
+            if (noAttackCD && CheckLOS(player.transform))
             {
                 agent.SetDestination(transform.position);
                 transform.LookAt(player.transform.position);

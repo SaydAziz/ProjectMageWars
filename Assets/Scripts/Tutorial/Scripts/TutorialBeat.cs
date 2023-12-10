@@ -7,4 +7,5 @@ public class TutorialBeat : ScriptableObject
 {
     public AudioClip voiceInstruction;
     public Canvas uiInstruction;
+    public bool cantMove;
 }

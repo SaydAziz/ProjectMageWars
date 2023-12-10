@@ -11,7 +11,24 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] CanvasGroup blind;
     [SerializeField] AudioSource fireSound;
-    [SerializeField] TutorialAgent agent;
+    public TutorialAgent agent;
+
+    private static GameManager _instance;
+
+    public static GameManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = GameObject.FindObjectOfType<GameManager>();
+            }
+
+            return _instance;
+        }
+    }
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +44,7 @@ public class GameManager : MonoBehaviour
     }
 
 
+
     void OpeningSequence()
     {
         blind.DOFade(0f, 3f).SetEase(Ease.Linear);
@@ -36,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     void StartTut()
     {
-        agent.EnableTrigger(1);
-        blind.enabled = false;
+        blind.gameObject.SetActive(false);
+        agent.StartTUT();
     }
 }

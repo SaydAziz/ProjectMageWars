@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class TutorialAgent : MonoBehaviour
     [SerializeField] AudioSource audio;
     Canvas ui;
     [SerializeField] UnityEngine.InputSystem.PlayerInput playerInput;
+
+    int currentTrigger;
 
 
     [SerializeField] List<TutorialTrigger> triggers = new List<TutorialTrigger>();
@@ -22,13 +25,26 @@ public class TutorialAgent : MonoBehaviour
         
     }
 
+    public void StartTUT()
+    {
+        EnableTrigger(1);
+    }
+
+    public void EnableNextTrigger()
+    {
+        EnableTrigger(currentTrigger + 1);
+    }
+
     public void EnableTrigger(int i)
     {
         triggers[i].gameObject.SetActive(true);
+        currentTrigger = i;
     }
 
-    public void TriggerTutBeat(AudioClip clip, Canvas canvas, bool cantMove)
+    public void TriggerTutBeat(TutorialTrigger trigger, AudioClip clip, Canvas canvas, bool cantMove)
     {
+        currentTrigger = triggers.IndexOf(trigger);
+
         if (audio != null)
         {
             audio.clip = clip;

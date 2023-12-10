@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
   m_Name: wake up
   m_EditorClassIdentifier: 
-  voiceInstruction: {fileID: 8300000, guid: 0d98b77ab89fbb84ca5186f4e72e5dec, type: 3}
+  voiceInstruction: {fileID: 8300000, guid: 9c6b714b86a5be04c8b64f9f6053e898, type: 3}
   uiInstruction: {fileID: 0}
   cantMove: 1

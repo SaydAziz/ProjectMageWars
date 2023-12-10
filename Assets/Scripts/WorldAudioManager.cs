@@ -38,6 +38,8 @@ public class WorldAudioManager : MonoBehaviour
             BasicSoundPlayer bs = g.AddComponent<BasicSoundPlayer>();
             audioSources.Enqueue(bs);
         }
+
+
     }
 
     // Update is called once per frame

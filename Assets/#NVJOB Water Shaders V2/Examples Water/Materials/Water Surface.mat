@@ -184,7 +184,7 @@ Material:
     - _MainDetailScale: 1
     - _Metallic: 0.95
     - _MicrowaveScale: 1
-    - _MicrowaveStrength: 0.91
+    - _MicrowaveStrength: 0.59
     - _MinuteDetailIntensity: 1.455
     - _MinuteDetailScrollSpeed: 0.089
     - _MirrorContrast: 1

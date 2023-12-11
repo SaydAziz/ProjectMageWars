@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3227322538797270206}
   - component: {fileID: 9058297089097585359}
   - component: {fileID: 5418731383445644503}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,6 +76,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3227322538797270206}
   impact: {fileID: 1559265251090958766, guid: 01d8959385cba3a4bb5c9662c624ec37, type: 3}
+  shootLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  ImpactSFX: {fileID: 8300000, guid: 55f4a25b12ba46b43b7f45867037f91b, type: 3}
 --- !u!135 &5418731383445644503
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -120,6 +124,10 @@ PrefabInstance:
     - target: {fileID: 207142272894015612, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 723695392737511292, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 931911459925331116, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.x
@@ -197,6 +205,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: OG_Fire_NewTrail
       objectReference: {fileID: 0}
+    - target: {fileID: 2589102964882884211, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635850148502551618, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3775180954029711241, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.15
@@ -212,6 +228,10 @@ PrefabInstance:
     - target: {fileID: 3775180954029711241, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796363755209732039, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7286853376586070934, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.x
@@ -232,6 +252,10 @@ PrefabInstance:
     - target: {fileID: 7286853376586070934, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114013089229796351, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

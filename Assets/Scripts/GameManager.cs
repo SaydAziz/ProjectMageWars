@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         agent.EnableTrigger(0);
-        Invoke("OpeningSequence", 10);
+        Invoke("OpeningSequence", 1);
     }
 
     // Update is called once per frame

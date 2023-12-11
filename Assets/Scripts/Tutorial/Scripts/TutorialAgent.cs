@@ -8,6 +8,7 @@ public class TutorialAgent : MonoBehaviour
     [SerializeField] AudioSource audio;
     Canvas ui;
     [SerializeField] UnityEngine.InputSystem.PlayerInput playerInput;
+    [SerializeField] DummyEnemy dummy;
 
     int currentTrigger;
 
@@ -32,7 +33,7 @@ public class TutorialAgent : MonoBehaviour
 
     public void EnableNextTrigger()
     {
-        EnableTrigger(currentTrigger + 1);
+        if (currentTrigger != triggers.Count - 1) EnableTrigger(currentTrigger + 1);
     }
 
     public void EnableTrigger(int i)
@@ -41,7 +42,7 @@ public class TutorialAgent : MonoBehaviour
         currentTrigger = i;
     }
 
-    public void TriggerTutBeat(TutorialTrigger trigger, AudioClip clip, Canvas canvas, bool cantMove, float autoDestroy)
+    public void TriggerTutBeat(TutorialTrigger trigger, AudioClip clip, Canvas canvas, bool cantMove, float autoDestroy, bool canFight)
     {
         if(ui != null) Destroy(ui.gameObject);
         triggers[currentTrigger].gameObject.SetActive(false);
@@ -71,6 +72,10 @@ public class TutorialAgent : MonoBehaviour
             playerInput.enabled = false;
         }
 
+        if(canFight)
+        {
+            dummy.EnableFight();
+        }
     }
 
 

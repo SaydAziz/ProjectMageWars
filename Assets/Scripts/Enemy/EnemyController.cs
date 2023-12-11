@@ -43,7 +43,6 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
             if (noAttackCD && CheckLOS(player.transform))
             {
                 agent.SetDestination(transform.position);
-                transform.LookAt(player.transform.position);
                 Attack();
             }
             else
@@ -67,13 +66,17 @@ public abstract class EnemyController : MonoBehaviour, IDamageable
         noAttackCD = false;
         //Debug.Log("BANG BANG");
         spell.Queue(spellSpawn.transform);
+        Invoke("CompleteAttack", 1);
+    }
+    protected virtual void CompleteAttack()
+    {
+        transform.LookAt(player.transform.position);
         spell.Use(transform.forward);
         Invoke("resetAttack", spell.useCooldown);
     }
-
     protected virtual void Roam()
     {
-        Debug.Log("roaming");
+        //Debug.Log("roaming");
         if (!hasDest)
         {
             SearchDest();

@@ -8,11 +8,10 @@ public class Projectile : MonoBehaviour
 {
     public Rigidbody rb;
     public GameObject impact;
-
     float travelSpeed, deathTimer, damage;
 
-    [SerializeField]
-    AudioClip ImpactSFX;
+    [SerializeField] LayerMask shootLayer;
+    [SerializeField] AudioClip ImpactSFX;
 
     private void Awake()
     {
@@ -25,11 +24,13 @@ public class Projectile : MonoBehaviour
         travelSpeed = TravelSpeed;
         deathTimer = DeathTimer;
         damage = Damage;
+        
     }
 
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.collider.gameObject.layer);
         Instantiate(impact, transform).transform.parent = null;
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 7)
         {
@@ -41,7 +42,7 @@ public class Projectile : MonoBehaviour
 
     public void Shoot()
     {
-        FunctionalUtility.SetLayerRecursively(this.gameObject, 0);
+        FunctionalUtility.SetLayerRecursively(this.gameObject, shootLayer);
         rb.detectCollisions = true;
         transform.parent = null;
         rb.freezeRotation = false;

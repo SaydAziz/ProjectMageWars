@@ -8,5 +8,6 @@ public class TutorialBeat : ScriptableObject
     public AudioClip voiceInstruction;
     public Canvas uiInstruction;
     public bool cantMove;
+    public bool canFight;
     public float autoDestroy;
 }

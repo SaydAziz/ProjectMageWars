@@ -16,7 +16,7 @@ public class TutorialAgent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentTrigger = -1;
     }
 
     // Update is called once per frame
@@ -41,8 +41,10 @@ public class TutorialAgent : MonoBehaviour
         currentTrigger = i;
     }
 
-    public void TriggerTutBeat(TutorialTrigger trigger, AudioClip clip, Canvas canvas, bool cantMove)
+    public void TriggerTutBeat(TutorialTrigger trigger, AudioClip clip, Canvas canvas, bool cantMove, float autoDestroy)
     {
+        if(ui != null) Destroy(ui.gameObject);
+        triggers[currentTrigger].gameObject.SetActive(false);
         currentTrigger = triggers.IndexOf(trigger);
 
         if (audio != null)
@@ -54,7 +56,10 @@ public class TutorialAgent : MonoBehaviour
         if (canvas != null)
         {
             ui = Instantiate(canvas);
-            Invoke("ResetUI", 7);
+            if (autoDestroy > 0)
+            {
+                Invoke("ResetUI", autoDestroy);
+            }
         }
 
         if (!cantMove)
@@ -71,7 +76,7 @@ public class TutorialAgent : MonoBehaviour
 
     private void ResetUI()
     {
-       Destroy(ui.gameObject);
+        Destroy(ui.gameObject);
     }
 
 }

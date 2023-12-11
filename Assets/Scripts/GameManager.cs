@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] CanvasGroup blind;
     [SerializeField] AudioSource fireSound;
     public TutorialAgent agent;
+    public PlayerData player;
 
     private static GameManager _instance;
 
@@ -33,8 +35,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player.health = 1;
         agent.EnableTrigger(0);
-        Invoke("OpeningSequence", 1);
+        Invoke("OpeningSequence", 12);
     }
 
     // Update is called once per frame
@@ -55,6 +58,19 @@ public class GameManager : MonoBehaviour
     void StartTut()
     {
         blind.gameObject.SetActive(false);
-        agent.StartTUT();
+        agent.EnableTrigger(1);
+    }
+    
+    public void ClosingSequence()
+    {
+        blind.gameObject.SetActive(true);
+        fireSound.DOFade(0f, 3f).SetEase(Ease.Linear);
+        blind.DOFade(1f, 3f).SetEase(Ease.Linear);
+        Invoke("EndFirstTut", 3);
+    }
+
+    void EndFirstTut()
+    {
+        SceneManager.LoadScene(3);
     }
 }

@@ -76,9 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3227322538797270206}
   impact: {fileID: 1559265251090958766, guid: 01d8959385cba3a4bb5c9662c624ec37, type: 3}
-  shootLayer:
-    serializedVersion: 2
-    m_Bits: 512
+  layer: 9
   ImpactSFX: {fileID: 8300000, guid: 55f4a25b12ba46b43b7f45867037f91b, type: 3}
 --- !u!135 &5418731383445644503
 SphereCollider:

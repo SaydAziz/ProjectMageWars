@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TutorialAgent : MonoBehaviour
@@ -10,9 +11,12 @@ public class TutorialAgent : MonoBehaviour
     [SerializeField] UnityEngine.InputSystem.PlayerInput playerInput;
     [SerializeField] DummyEnemy dummy;
 
+    private float timeLeft = 10;
+    private float currentTime;
+    private bool timerOn;
+    [SerializeField] TMP_Text timerTxt;
+
     int currentTrigger;
-
-
     [SerializeField] List<TutorialTrigger> triggers = new List<TutorialTrigger>();
     // Start is called before the first frame update
     void Start()
@@ -21,19 +25,49 @@ public class TutorialAgent : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (timerOn)
+        {
+            if(timeLeft > 0)
+            {
+                timeLeft -= Time.deltaTime;
+                TimerTick(timeLeft);
+            }
+            else
+            {
+                Debug.Log("Timer Done.");
+                timeLeft = 0;
+                timerOn = false;
+                timerTxt.gameObject.SetActive(false);
+                EnableNextTrigger();
+            }
+        }
     }
 
-    public void StartTUT()
+    void TimerTick(float currentTime)
     {
-        EnableTrigger(1);
+        currentTime += 1;
+        float minutes = Mathf.FloorToInt(currentTime / 60);
+        float seconds = Mathf.FloorToInt(currentTime % 60);
+
+        timerTxt.text = string.Format("{0:00} : {1:00}", minutes, seconds);
+
     }
 
     public void EnableNextTrigger()
     {
-        if (currentTrigger != triggers.Count - 1) EnableTrigger(currentTrigger + 1);
+        if (currentTrigger == triggers.Count - 2)
+        {
+            Invoke("DelayedEnd", 8);
+        }
+            EnableTrigger(currentTrigger + 1);
+
+    }
+
+    private void DelayedEnd()
+    {
+        GameManager.Instance.ClosingSequence();
     }
 
     public void EnableTrigger(int i)
@@ -74,14 +108,18 @@ public class TutorialAgent : MonoBehaviour
 
         if(canFight)
         {
-            dummy.EnableFight();
+            dummy.EnableFight(true);
+            timerTxt.gameObject.SetActive(true);
+            timerOn = true;
+        }
+        else
+        {
+            dummy.EnableFight(false);
         }
     }
-
 
     private void ResetUI()
     {
         Destroy(ui.gameObject);
     }
-
 }

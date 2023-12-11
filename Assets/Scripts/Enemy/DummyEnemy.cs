@@ -72,8 +72,9 @@ public class DummyEnemy : EnemyController
         GameManager.Instance.agent.EnableNextTrigger();
     }
 
-    public void EnableFight()
+    public void EnableFight(bool fight)
     {
-        noAttackCD = true;
+        CancelInvoke();
+        noAttackCD = fight;
     }
 }

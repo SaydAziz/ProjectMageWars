@@ -9,8 +9,7 @@ public class Projectile : MonoBehaviour
     public Rigidbody rb;
     public GameObject impact;
     float travelSpeed, deathTimer, damage;
-
-    [SerializeField] LayerMask shootLayer;
+    [SerializeField] int layer;
     [SerializeField] AudioClip ImpactSFX;
 
     private void Awake()
@@ -42,7 +41,7 @@ public class Projectile : MonoBehaviour
 
     public void Shoot()
     {
-        FunctionalUtility.SetLayerRecursively(this.gameObject, shootLayer);
+        FunctionalUtility.SetLayerRecursively(this.gameObject, layer);
         rb.detectCollisions = true;
         transform.parent = null;
         rb.freezeRotation = false;

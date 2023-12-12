@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
-  m_Name: Shoot
+  m_Name: Walk
   m_EditorClassIdentifier: 
-  voiceInstruction: {fileID: 8300000, guid: b8a64ee9786cb3a44a52db7fe6c433a0, type: 3}
-  uiInstruction: {fileID: 2854590116207513960, guid: b4340a21dbbeec34684479b162342e4d, type: 3}
+  voiceInstruction: {fileID: 8300000, guid: 6aee87d0005d65146bbb59f6db20be7a, type: 3}
+  uiInstruction: {fileID: 2854590116207513960, guid: ab292936fea609f48895742fc4596700, type: 3}
   cantMove: 0
   canFight: 0
   autoDestroy: 0

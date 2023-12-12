@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
-  m_Name: wake up
+  m_Name: GoCastle
   m_EditorClassIdentifier: 
-  voiceInstruction: {fileID: 8300000, guid: 7fcffb7b52303a4419c29c02f9bbd8b4, type: 3}
+  voiceInstruction: {fileID: 8300000, guid: 420738f2d165ef7499d25fd1b1e843f9, type: 3}
   uiInstruction: {fileID: 0}
-  cantMove: 1
+  cantMove: 0
   canFight: 0
   autoDestroy: 0

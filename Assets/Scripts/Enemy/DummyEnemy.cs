@@ -100,6 +100,13 @@ public class DummyEnemy : EnemyController
     public void EnableFight(bool fight)
     {
         CancelInvoke();
-        noAttackCD = fight;
+        if (fight)
+        {
+            Invoke("resetAttack", spell.useCooldown);
+        }
+        else
+        {
+            noAttackCD = fight;
+        }
     }
 }

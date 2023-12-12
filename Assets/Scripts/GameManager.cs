@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
     {
         blind.gameObject.SetActive(false);
         agent.EnableTrigger(1);
+        Invoke("DelayedStart", 4);
+
     }
     
     public void ClosingSequence()
@@ -70,7 +72,10 @@ public class GameManager : MonoBehaviour
         blind.DOFade(1f, 3f).SetEase(Ease.Linear);
         Invoke("EndFirstTut", 3);
     }
-
+    void DelayedStart()
+    {
+        agent.EnableNextTrigger();
+    }
     void EndFirstTut()
     {
         SceneManager.LoadScene(3);

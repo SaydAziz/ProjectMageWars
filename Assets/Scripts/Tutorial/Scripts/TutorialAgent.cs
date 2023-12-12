@@ -11,7 +11,7 @@ public class TutorialAgent : MonoBehaviour
     [SerializeField] UnityEngine.InputSystem.PlayerInput playerInput;
     [SerializeField] DummyEnemy dummy;
 
-    private float timeLeft = 12;
+    private float timeLeft = 14;
     private float currentTime;
     private bool timerOn;
     [SerializeField] TMP_Text timerTxt;

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum SurfaceType { Stone, Wood, Water }
+public enum SurfaceType { Stone, Wood, Water, Ground }
 
 public class SurfaceChecker : MonoBehaviour
 {
     [SerializeField]
-    Material[] woodMaterials, stoneMaterials;
+    Material[] woodMaterials, stoneMaterials, groundMaterials;
 
-    string[] woodNames, stoneNames;
+    string[] woodNames, stoneNames, groundNames;
 
     public static SurfaceChecker Instance;
     // Start is called before the first frame update
@@ -19,6 +19,7 @@ public class SurfaceChecker : MonoBehaviour
         Instance = this;
         woodNames = new string[woodMaterials.Length];
         stoneNames = new string[stoneMaterials.Length];
+        groundNames = new string[groundMaterials.Length];
         for(int i =0; i < woodMaterials.Length; i++)
         {
             woodNames[i] = woodMaterials[i].name + " (Instance)";   
@@ -26,6 +27,10 @@ public class SurfaceChecker : MonoBehaviour
         for (int i = 0; i < stoneMaterials.Length; i++)
         {
             stoneNames[i] = stoneMaterials[i].name + " (Instance)";
+        }
+        for (int i = 0; i < groundMaterials.Length; i++)
+        {
+            groundNames[i] = groundMaterials[i].name + " (Instance)";
         }
     }
 
@@ -49,6 +54,13 @@ public class SurfaceChecker : MonoBehaviour
                 if (s == mat.name)
                 {
                     return SurfaceType.Stone;
+                }
+            }
+            foreach (string s in groundNames)
+            {
+                if (s == mat.name)
+                {
+                    return SurfaceType.Ground;
                 }
             }
         }

@@ -69,6 +69,9 @@ public class PlayerAudioManager : MonoBehaviour
                 case SurfaceType.Stone:
                     PlaySoundClip(Prefix + "_Stone");
                     break;
+                case SurfaceType.Ground:
+                    PlaySoundClip(Prefix + "_Ground");
+                    break;
                 default:
                     PlaySoundClip(Prefix + "_Stone");
                     break;

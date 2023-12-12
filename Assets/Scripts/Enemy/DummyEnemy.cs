@@ -5,16 +5,26 @@ using UnityEngine;
 public class DummyEnemy : EnemyController
 {
     [SerializeField] private Animator anim;
+    [SerializeField] private Transform spellSpawnR;
 
+    string animL, animR, currentAnim;
+
+    private Transform currentSpellSpawn;
+    
     // Start is called before the first frame update
     void Start()
     {
+        animL = "ShootL";
+        animR = "ShootR";
+
+
         health = 999999;
         //attackCD = 2f;
         roamRange = 0;
         sightRange = 30;
         attackRange = 30;
-
+        currentSpellSpawn = spellSpawn;
+        currentAnim = animL;
         noAttackCD = false;
     }
 
@@ -41,17 +51,32 @@ public class DummyEnemy : EnemyController
 
     protected override void Attack()
     {
-        anim.SetTrigger("Shoot");
+        AlternateSpellSpawn();
+        anim.SetTrigger(currentAnim);
         noAttackCD = false;
         //Debug.Log("BANG BANG");
         Invoke("CompleteAttack", 1);
     }
 
+    void AlternateSpellSpawn()
+    {
+        if (currentSpellSpawn == spellSpawn)
+        {
+            currentSpellSpawn = spellSpawnR;
+            currentAnim = animR;
+        }
+        else
+        {
+            currentSpellSpawn = spellSpawn;
+            currentAnim = animL;
+        }
+    }
+
     protected override void CompleteAttack()
     {
-        spell.Queue(spellSpawn.transform);
-        spellSpawn.transform.LookAt(player.transform.position);
-        spell.Use(spellSpawn.transform.forward);
+        spell.Queue(currentSpellSpawn);
+        currentSpellSpawn.transform.LookAt(player.transform.position);
+        spell.Use(currentSpellSpawn.transform.forward);
         Invoke("resetAttack", spell.useCooldown);
     }
 

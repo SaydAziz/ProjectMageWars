@@ -5689,6 +5689,10 @@ PrefabInstance:
       propertyPath: viewModel
       value: 
       objectReference: {fileID: 1427534377}
+    - target: {fileID: 3952738099641523226, guid: 76790619341e73c4d9e13f518d383f48, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4193437252227834328, guid: 76790619341e73c4d9e13f518d383f48, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.33
@@ -5733,6 +5737,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4741921647678253018, guid: 76790619341e73c4d9e13f518d383f48, type: 3}
+      propertyPath: rightHand
+      value: 
+      objectReference: {fileID: 11400000, guid: 88ebf973c5c2807499e72cadfa81ce8a, type: 2}
     - target: {fileID: 5509976501813110371, guid: 76790619341e73c4d9e13f518d383f48, type: 3}
       propertyPath: m_Enabled
       value: 1

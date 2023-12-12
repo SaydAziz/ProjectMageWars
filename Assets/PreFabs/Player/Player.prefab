@@ -259,8 +259,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1552773018566872921}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.7, z: -3.84}
+  m_LocalRotation: {x: -0, y: -0.5477602, z: -0, w: 0.83663535}
+  m_LocalPosition: {x: 2.08, y: 2.48, z: -8.855533}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -269,7 +269,7 @@ Transform:
   - {fileID: 1326183444485640786}
   - {fileID: 4556216069108788813}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -66.427, z: 0}
 --- !u!54 &9216032757167449044
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -533,8 +533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0bec264b2b7e44c808a924b2c93ab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftHand: {fileID: 11400000, guid: 88ebf973c5c2807499e72cadfa81ce8a, type: 2}
-  rightHand: {fileID: 11400000, guid: 88ebf973c5c2807499e72cadfa81ce8a, type: 2}
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
   vController: {fileID: 7219365369965338384}
   isDead: 0
   canDash: 1
@@ -597,7 +597,7 @@ MonoBehaviour:
     looping: 0
     stereoPan: 0
     soundType: 1
-  - ID: Landed
+  - ID: Landed_Stone
     Clips:
     - {fileID: 8300000, guid: c742c3b9da40bec49ae35983825d9c4a, type: 3}
     - {fileID: 8300000, guid: fbf5ca842c8083a44b5845ef844b7acf, type: 3}
@@ -617,6 +617,35 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 5bb1b5232f8909f45bc307879bd8fd93, type: 3}
     - {fileID: 8300000, guid: e38d1388770862649bcb530c8a4e20a1, type: 3}
     - {fileID: 8300000, guid: 5e4afc944caa46d40adfbeb4f9b0685c, type: 3}
+    randomPitchOffset: 0.1
+    looping: 0
+    stereoPan: 0
+    soundType: 1
+  - ID: Landed_Wood
+    Clips:
+    - {fileID: 8300000, guid: 155cce7ade37b344c9767fddfddded69, type: 3}
+    - {fileID: 8300000, guid: 6a326402374cb2146a4c9b3ce2950e9a, type: 3}
+    - {fileID: 8300000, guid: 22cdf3da1813074499fb269b23d055ff, type: 3}
+    randomPitchOffset: 0.2
+    looping: 0
+    stereoPan: 0
+    soundType: 1
+  - ID: Footsteps_Ground
+    Clips:
+    - {fileID: 8300000, guid: 2c49d05014ae5e245a94862ef01e808c, type: 3}
+    - {fileID: 8300000, guid: c94731f83646e064c818b7910f52070d, type: 3}
+    - {fileID: 8300000, guid: b7e916199b4ecd0488d597a28d1b56f8, type: 3}
+    - {fileID: 8300000, guid: 69ec62e0479d39f4da2c4fa728f2e37f, type: 3}
+    - {fileID: 8300000, guid: 71b82c748912fa24b94d6ee4c5d17d5f, type: 3}
+    randomPitchOffset: 0.1
+    looping: 0
+    stereoPan: 0
+    soundType: 1
+  - ID: Landed_Ground
+    Clips:
+    - {fileID: 8300000, guid: 2c49d05014ae5e245a94862ef01e808c, type: 3}
+    - {fileID: 8300000, guid: c94731f83646e064c818b7910f52070d, type: 3}
+    - {fileID: 8300000, guid: 71b82c748912fa24b94d6ee4c5d17d5f, type: 3}
     randomPitchOffset: 0.1
     looping: 0
     stereoPan: 0
@@ -661,7 +690,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2920510708290118200}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -898,6 +927,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: df7209270ad879643b50a4d7e0282417, type: 2}
   - {fileID: 2100000, guid: a1e5ff40083ede74f82110c7bca8a4a1, type: 2}
   - {fileID: 2100000, guid: 24288037450c6ff42a24f32256069798, type: 2}
+  groundMaterials:
+  - {fileID: 2100000, guid: 511f58df9af0f2c4ea7dc85bd4dc65de, type: 2}
 --- !u!1 &8371686033782018974
 GameObject:
   m_ObjectHideFlags: 0

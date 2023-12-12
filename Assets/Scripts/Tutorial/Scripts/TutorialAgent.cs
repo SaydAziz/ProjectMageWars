@@ -11,7 +11,7 @@ public class TutorialAgent : MonoBehaviour
     [SerializeField] UnityEngine.InputSystem.PlayerInput playerInput;
     [SerializeField] DummyEnemy dummy;
 
-    private float timeLeft = 10;
+    private float timeLeft = 12;
     private float currentTime;
     private bool timerOn;
     [SerializeField] TMP_Text timerTxt;
@@ -108,7 +108,7 @@ public class TutorialAgent : MonoBehaviour
         if(canFight)
         {
             dummy.EnableFight(true);
-            timerTxt.gameObject.SetActive(true);
+            //timerTxt.gameObject.SetActive(true);
             timerOn = true;
         }
         else

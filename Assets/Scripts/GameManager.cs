@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] CanvasGroup blind;
     [SerializeField] AudioSource fireSound;
+    [SerializeField] AudioSource footSteps;
     public TutorialAgent agent;
     public PlayerData player;
 
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     void OpeningSequence()
     {
+        footSteps.enabled = true;
         blind.DOFade(0f, 3f).SetEase(Ease.Linear);
         fireSound.DOFade(1f, 3f).SetEase(Ease.Linear);
         Invoke("StartTut", 3);

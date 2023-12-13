@@ -396,6 +396,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -92.00032, z: 0}
+--- !u!1 &135167276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 135167277}
+  m_Layer: 0
+  m_Name: checkpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &135167277
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135167276}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.197, y: 0, z: -0.267}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 787155042}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &155418826 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7430500040783236117, guid: 26cdfd105a07414439775e8d7266dcc9, type: 3}
@@ -4068,9 +4099,16 @@ PrefabInstance:
       propertyPath: agent
       value: 
       objectReference: {fileID: 664040203}
+    - target: {fileID: 7430500040783236117, guid: 26cdfd105a07414439775e8d7266dcc9, type: 3}
+      propertyPath: checkpoint
+      value: 
+      objectReference: {fileID: 135167277}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5913999229473059543, guid: 26cdfd105a07414439775e8d7266dcc9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 135167277}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26cdfd105a07414439775e8d7266dcc9, type: 3}
 --- !u!1001 &84497126170091239
@@ -4331,6 +4369,10 @@ PrefabInstance:
       propertyPath: footSteps
       value: 
       objectReference: {fileID: 483484184}
+    - target: {fileID: 5012752265205784683, guid: 44b1a1fefebd3a941bb0d6cb1037a0f1, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 937622450}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4545,6 +4587,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.092
       objectReference: {fileID: 0}
+    - target: {fileID: 2572563885890804420, guid: 5824f82a68818184cb33506f44041d87, type: 3}
+      propertyPath: spell
+      value: 
+      objectReference: {fileID: 11400000, guid: c6518bfc4eff3f34397c0207bebf1f10, type: 2}
     - target: {fileID: 2572563885890804420, guid: 5824f82a68818184cb33506f44041d87, type: 3}
       propertyPath: player
       value: 
@@ -4775,6 +4821,10 @@ PrefabInstance:
       propertyPath: ppVol2
       value: 
       objectReference: {fileID: 394615816}
+    - target: {fileID: 7219365369965338384, guid: 76790619341e73c4d9e13f518d383f48, type: 3}
+      propertyPath: blackOut
+      value: 
+      objectReference: {fileID: 880387087}
     - target: {fileID: 7219365369965338384, guid: 76790619341e73c4d9e13f518d383f48, type: 3}
       propertyPath: dashIcon
       value: 

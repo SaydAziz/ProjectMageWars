@@ -47,6 +47,7 @@ public class PlayerData : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        GameManager.Instance.playerInput.enabled = false;
         health = 1;
         isDead = true;
         vController.BlackOut(1);

@@ -8,7 +8,6 @@ public class TutorialAgent : MonoBehaviour
 {
     [SerializeField] AudioSource audio;
     Canvas ui;
-    [SerializeField] UnityEngine.InputSystem.PlayerInput playerInput;
     [SerializeField] DummyEnemy dummy;
 
     private float timeLeft = 14;
@@ -51,10 +50,18 @@ public class TutorialAgent : MonoBehaviour
             ResetUI();
 
         }
+        if(GameManager.Instance.isCamp)
+        {
+            triggers[currentTrigger].triggered = false;
+            currentTrigger--;
+            dummy.EnableFight(false);
+            timerOn = false;
+            timeLeft = 14;
+        }
         triggers[currentTrigger].gameObject.SetActive(true);
         audio.Stop();
         triggers[currentTrigger].triggered = false;
-        playerInput.enabled = true;
+        GameManager.Instance.playerInput.enabled = true;
     }
     public Transform GetCheckpoint()
     {
@@ -120,11 +127,11 @@ public class TutorialAgent : MonoBehaviour
 
         if (!cantMove)
         {
-            playerInput.enabled = true;
+            GameManager.Instance.playerInput.enabled = true;
         }
         else
         {
-            playerInput.enabled = false;
+            GameManager.Instance.playerInput.enabled = false;
         }
 
         if (GameManager.Instance.isCamp)

@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] CanvasGroup blind;
     [SerializeField] AudioSource fireSound;
     [SerializeField] AudioSource footSteps;
+    public UnityEngine.InputSystem.PlayerInput playerInput;
     public TutorialAgent agent;
     public PlayerData player;
     public bool isCamp;
@@ -39,12 +40,13 @@ public class GameManager : MonoBehaviour
     {
         if (isCamp)
         {
-            player.health = 1;
             agent.EnableTrigger(0);
             Invoke("OpeningSequence", 12);
         }
         
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -56,6 +58,8 @@ public class GameManager : MonoBehaviour
     {
         player.gameObject.transform.position = agent.GetCheckpoint().position;
         agent.ResetTrigger();
+        playerInput.enabled = true;
+        
     }
 
     void OpeningSequence()
@@ -68,7 +72,6 @@ public class GameManager : MonoBehaviour
 
     void StartTut()
     {
-        blind.gameObject.SetActive(false);
         agent.EnableTrigger(1);
         Invoke("DelayedStart", 4);
 

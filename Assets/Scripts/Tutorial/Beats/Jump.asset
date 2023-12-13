@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
-  m_Name: fake
+  m_Name: Jump
   m_EditorClassIdentifier: 
   voiceInstruction: {fileID: 0}
-  uiInstruction: {fileID: 0}
+  uiInstruction: {fileID: 2854590116207513960, guid: a19e5c5e34c6546429f158c41f1231d6, type: 3}
   cantMove: 0
   canFight: 0
-  slowTime: 1
   autoDestroy: 0

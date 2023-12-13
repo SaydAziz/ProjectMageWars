@@ -9,5 +9,6 @@ public class TutorialBeat : ScriptableObject
     public Canvas uiInstruction;
     public bool cantMove;
     public bool canFight;
+    public float slowTime;
     public float autoDestroy;
 }

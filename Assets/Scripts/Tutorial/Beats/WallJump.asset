@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
-  m_Name: fake
+  m_Name: WallJump
   m_EditorClassIdentifier: 
   voiceInstruction: {fileID: 0}
-  uiInstruction: {fileID: 0}
+  uiInstruction: {fileID: 2854590116207513960, guid: 98309d1398c87af4f8f71d003acf5f2e, type: 3}
   cantMove: 0
   canFight: 0
-  slowTime: 1
+  slowTime: 0.05
   autoDestroy: 0

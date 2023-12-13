@@ -7,8 +7,9 @@ public class TutorialTrigger : MonoBehaviour
     [SerializeField] TutorialAgent agent;
     [SerializeField] int playerLayer = 7;
     [SerializeField] TutorialBeat beat;
+    public Transform checkpoint;
 
-    bool triggered;
+    public bool triggered;
     private void Start()
     {
         triggered = false;

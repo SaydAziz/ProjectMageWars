@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioSource footSteps;
     public TutorialAgent agent;
     public PlayerData player;
+    public bool isCamp;
 
     private static GameManager _instance;
 
@@ -36,9 +37,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player.health = 1;
-        agent.EnableTrigger(0);
-        Invoke("OpeningSequence", 12);
+        if (isCamp)
+        {
+            player.health = 1;
+            agent.EnableTrigger(0);
+            Invoke("OpeningSequence", 12);
+        }
+        
     }
 
     // Update is called once per frame
@@ -47,7 +52,11 @@ public class GameManager : MonoBehaviour
 
     }
 
-
+    public void ResetCheckpoint()
+    {
+        player.gameObject.transform.position = agent.GetCheckpoint().position;
+        agent.ResetTrigger();
+    }
 
     void OpeningSequence()
     {

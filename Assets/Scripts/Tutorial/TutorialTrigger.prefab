@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  playerLayer: 7
   beat: {fileID: 11400000, guid: c8e3b316cedbfb84eabde7e6b2ef1241, type: 2}
+  checkpoint: {fileID: 0}
+  triggered: 0

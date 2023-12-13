@@ -44,6 +44,23 @@ public class TutorialAgent : MonoBehaviour
         }
     }
 
+    public void ResetTrigger()
+    {
+        if(ui != null)
+        {
+            ResetUI();
+
+        }
+        triggers[currentTrigger].gameObject.SetActive(true);
+        audio.Stop();
+        triggers[currentTrigger].triggered = false;
+        playerInput.enabled = true;
+    }
+    public Transform GetCheckpoint()
+    {
+        return triggers[currentTrigger].checkpoint;
+    }
+
     void TimerTick(float currentTime)
     {
         currentTime += 1;
@@ -110,16 +127,20 @@ public class TutorialAgent : MonoBehaviour
             playerInput.enabled = false;
         }
 
-        if(canFight)
+        if (GameManager.Instance.isCamp)
         {
-            dummy.EnableFight(true);
-            //timerTxt.gameObject.SetActive(true);
-            timerOn = true;
+            if (canFight)
+            {
+                dummy.EnableFight(true);
+                //timerTxt.gameObject.SetActive(true);
+                timerOn = true;
+            }
+            else
+            {
+                dummy.EnableFight(false);
+            }
         }
-        else
-        {
-            dummy.EnableFight(false);
-        }
+        
     }
 
     private void ResetUI()

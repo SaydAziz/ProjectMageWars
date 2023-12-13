@@ -47,8 +47,21 @@ public class PlayerData : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        health = 1;
         isDead = true;
+        vController.BlackOut(1);
+        Invoke("hitCP", 2);
     }
+
+    private void hitCP()
+    {
+        isDead = false;
+        health = 100;
+        GameManager.Instance.ResetCheckpoint();
+        vController.BlackOut(-1);
+        
+    }
+
 
     public void TakeDamage(float damage)
     {

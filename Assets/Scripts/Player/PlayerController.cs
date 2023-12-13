@@ -75,9 +75,20 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireCube(transform.position - transform.up * 0.7f, transform.localScale);
     }
 
+    public void DelayedVelStop()
+    {
+        rb.velocity = Vector3.zero;
+    }
+
     private void FixedUpdate()
     {
         isDead = playerData.isDead;
+
+        if (isDead)
+        {
+            Invoke("DelayedVelStop", 1);
+        }
+
         Debug.DrawRay(transform.position, Vector3.down * 1.2f, Color.red, .1f);
         isGrounded = Physics.CheckBox(transform.position - transform.up * .7f, new Vector3(.3f, .4f, .3f), Quaternion.identity, groundLayer);
         //isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.2f, groundLayer);
@@ -139,7 +150,7 @@ public class PlayerController : MonoBehaviour
         previousGroundedState = isGrounded;
     }
 
- 
+    
     private void ResetJump()
     {
         canJump = true;

@@ -13,6 +13,8 @@ public class VisualController : MonoBehaviour
     [SerializeField] Slider healthBar;
     [SerializeField] Image dashIcon;
     [SerializeField] PostProcessVolume ppVol0, ppVol1, ppVol2;
+    [SerializeField] CanvasGroup blackOut;
+
     Vignette leftVignette, rightVignette;
     ChromaticAberration chrome;
     Grain gran;
@@ -35,6 +37,13 @@ public class VisualController : MonoBehaviour
     void FixedUpdate()
     {
         
+    }
+
+    public void BlackOut(float val)
+    {
+        blackOut.DOFade(val, .1f).SetEase(Ease.Linear);
+        DOTween.To(() => AudioListener.volume, volume => AudioListener.volume = volume, -val, 1f).SetEase(Ease.Linear);
+
     }
 
     public void TogglePpWeight(float time)

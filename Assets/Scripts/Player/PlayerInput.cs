@@ -26,10 +26,12 @@ public class PlayerInput : MonoBehaviour
     {
         if (controller.isDead)
         {
-            if (contEnabled)
-            {
-                ToggleMenu(true);
-            }
+            pi.enabled = false;
+            
+        }
+        else
+        {
+            pi.enabled = true;
         }
     }
 

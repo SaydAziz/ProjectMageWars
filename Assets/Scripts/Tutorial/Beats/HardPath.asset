@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
-  m_Name: WallJump
+  m_Name: HardPath
   m_EditorClassIdentifier: 
-  voiceInstruction: {fileID: 8300000, guid: dda7038472186fb489179322b512eaed, type: 3}
-  uiInstruction: {fileID: 2854590116207513960, guid: 98309d1398c87af4f8f71d003acf5f2e, type: 3}
+  voiceInstruction: {fileID: 8300000, guid: 794af760063aa7b419f67ccd85c79255, type: 3}
+  uiInstruction: {fileID: 0}
   cantMove: 0
   canFight: 0
-  slowTime: 0.05
+  slowTime: 1
   autoDestroy: 0

@@ -45,7 +45,12 @@ public class GameManager : MonoBehaviour
             agent.EnableTrigger(0);
             Invoke("OpeningSequence", 12);
         }
-        
+        else
+        {
+            blind.DOFade(0f, 3f).SetEase(Ease.Linear);
+            footSteps.DOFade(1f, 3f).SetEase(Ease.Linear);
+        }
+
     }
 
 
@@ -95,5 +100,10 @@ public class GameManager : MonoBehaviour
     void EndFirstTut()
     {
         SceneManager.LoadScene(3);
+    }
+
+    public void EnableDash()
+    {
+        player.canDash = true;
     }
 }

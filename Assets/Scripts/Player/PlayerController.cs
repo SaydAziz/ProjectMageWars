@@ -180,6 +180,8 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded && canJump)
         {
+            PlayerAudioManager.Instance.PlaySoundClip("Jump");
+
             canJump = false;
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
             rb.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
@@ -188,6 +190,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (CheckHitWallColliders() && canJump && !CheckWall(currentHitWall[0]))
         {
+            PlayerAudioManager.Instance.PlaySoundClip("Jump");
+
             cachedWall = currentHitWall[0];
             canJump = false;
             rb.velocity = Vector3.zero;

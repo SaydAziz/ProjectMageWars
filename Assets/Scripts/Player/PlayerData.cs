@@ -11,11 +11,12 @@ public class PlayerData : MonoBehaviour, IDamageable
     public float health { get; set; }
 
     public bool isDead = false;
-    public bool canDash = true; //probably should get set this stuff
+    public bool canDash; //probably should get set this stuff
 
 
     private void Start()
     {
+        canDash = false;
     }
 
     private void Awake()

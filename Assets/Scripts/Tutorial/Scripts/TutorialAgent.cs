@@ -151,6 +151,15 @@ public class TutorialAgent : MonoBehaviour
             {
                 dummy.EnableFight(false);
             }
+
+            
+        }
+        else
+        {
+            if (currentTrigger == triggers.Count - 4)
+            {
+                GameManager.Instance.EnableDash();
+            }
         }
 
         if (autoNext > 0)

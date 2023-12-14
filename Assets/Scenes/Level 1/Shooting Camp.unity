@@ -4398,6 +4398,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1332828831}
     - target: {fileID: 5012752265205784683, guid: 44b1a1fefebd3a941bb0d6cb1037a0f1, type: 3}
+      propertyPath: playerRB
+      value: 
+      objectReference: {fileID: 8909159485729786419}
+    - target: {fileID: 5012752265205784683, guid: 44b1a1fefebd3a941bb0d6cb1037a0f1, type: 3}
       propertyPath: fireSound
       value: 
       objectReference: {fileID: 1609881260}
@@ -4882,6 +4886,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76790619341e73c4d9e13f518d383f48, type: 3}
+--- !u!54 &8909159485729786419 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 9216032757167449044, guid: 76790619341e73c4d9e13f518d383f48, type: 3}
+  m_PrefabInstance: {fileID: 8909159485729786418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

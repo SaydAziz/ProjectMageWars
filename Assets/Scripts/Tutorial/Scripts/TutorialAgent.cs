@@ -46,7 +46,8 @@ public class TutorialAgent : MonoBehaviour
 
     public void ResetTrigger()
     {
-        if(ui != null)
+        
+        if (ui != null)
         {
             ResetUI();
 
@@ -59,10 +60,11 @@ public class TutorialAgent : MonoBehaviour
             timerOn = false;
             timeLeft = 14;
         }
+
         triggers[currentTrigger].gameObject.SetActive(true);
         audio.Stop();
         triggers[currentTrigger].triggered = false;
-        GameManager.Instance.playerInput.enabled = true;
+
     }
     public Transform GetCheckpoint()
     {
@@ -81,6 +83,7 @@ public class TutorialAgent : MonoBehaviour
 
     public void EnableNextTrigger()
     {
+        CancelInvoke(); //MIGHT BE A BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD IDEA
         if (currentTrigger == triggers.Count - 2)
         {
             Invoke("DelayedEnd", 5);

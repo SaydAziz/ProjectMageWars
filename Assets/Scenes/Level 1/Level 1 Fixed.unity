@@ -2415,6 +2415,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0bec264b2b7e44c808a924b2c93ab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &719337695 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 9216032757167449044, guid: 76790619341e73c4d9e13f518d383f48, type: 3}
+  m_PrefabInstance: {fileID: 8909159485729786418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &728129776
 GameObject:
   m_ObjectHideFlags: 0
@@ -5797,6 +5802,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 719337690}
+    - target: {fileID: 5012752265205784683, guid: 44b1a1fefebd3a941bb0d6cb1037a0f1, type: 3}
+      propertyPath: playerRB
+      value: 
+      objectReference: {fileID: 719337695}
     - target: {fileID: 5012752265205784683, guid: 44b1a1fefebd3a941bb0d6cb1037a0f1, type: 3}
       propertyPath: playerInput
       value: 

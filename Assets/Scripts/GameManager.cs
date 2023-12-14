@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] CanvasGroup blind;
     [SerializeField] AudioSource fireSound;
     [SerializeField] AudioSource footSteps;
+    [SerializeField] Rigidbody playerRB;
+
     public UnityEngine.InputSystem.PlayerInput playerInput;
     public TutorialAgent agent;
     public PlayerData player;
@@ -56,10 +58,12 @@ public class GameManager : MonoBehaviour
 
     public void ResetCheckpoint()
     {
+        Debug.Log("RESETTITNG");
         player.gameObject.transform.position = agent.GetCheckpoint().position;
-        agent.ResetTrigger();
+        playerRB.velocity = Vector3.zero;
         playerInput.enabled = true;
-        
+        agent.ResetTrigger();
+
     }
 
     void OpeningSequence()

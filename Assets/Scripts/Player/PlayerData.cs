@@ -47,17 +47,21 @@ public class PlayerData : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        GameManager.Instance.playerInput.enabled = false;
-        health = 1;
-        isDead = true;
-        vController.BlackOut(1);
-        Invoke("hitCP", 2);
+        if (!isDead)
+        {
+            GameManager.Instance.playerInput.enabled = false;
+            health = 1;
+            isDead = true;
+            vController.BlackOut(1);
+            Invoke("hitCP", 2);
+        }
+        
     }
 
     private void hitCP()
     {
-        isDead = false;
         health = 100;
+        isDead = false;
         GameManager.Instance.ResetCheckpoint();
         vController.BlackOut(-1);
         

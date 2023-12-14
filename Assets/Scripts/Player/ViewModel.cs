@@ -13,7 +13,6 @@ public class ViewModel : MonoBehaviour
     Vector2 input;
 
     //bob
-    float resetTime = 0.25f;
     float bobScale = 0.1f;
     float bobSpeed = 7f;
 

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TutorialAgent : MonoBehaviour
 {
-    [SerializeField] AudioSource audio;
+    [SerializeField] AudioSource audioS;
     [SerializeField] AudioSource questSound;
     Canvas ui;
     [SerializeField] DummyEnemy dummy;
@@ -62,7 +62,7 @@ public class TutorialAgent : MonoBehaviour
         }
 
         triggers[currentTrigger].gameObject.SetActive(true);
-        audio.Stop();
+        audioS.Stop();
         triggers[currentTrigger].triggered = false;
 
     }
@@ -114,10 +114,10 @@ public class TutorialAgent : MonoBehaviour
             Time.timeScale = slowTime;
         }
 
-        if (audio != null)
+        if (audioS != null)
         {
-            audio.clip = clip;
-            audio.Play();
+            audioS.clip = clip;
+            audioS.Play();
         }
         
         if (canvas != null)

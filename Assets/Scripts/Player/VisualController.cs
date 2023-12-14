@@ -21,14 +21,11 @@ public class VisualController : MonoBehaviour
     Bloom bloom;
     LensDistortion lensDistortion;
 
-
-    bool vignetteOn;
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
         cam.fieldOfView = 90;
-        vignetteOn = false;
         ppVol1.profile.TryGetSettings(out leftVignette);
         ppVol2.profile.TryGetSettings(out rightVignette);
     }

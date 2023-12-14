@@ -26,7 +26,9 @@ public class WorldAudioManager : MonoBehaviour
     {
         for(int i = 0; i < MaxAvailablePlayers; i++)
         {
-            GameObject g = Instantiate(new GameObject(), transform);
+            //Debug.Log("Creating Audio Source...");
+            GameObject g = new GameObject();
+            g.transform.parent = transform;
             AudioSource s = g.AddComponent<AudioSource>();
             s.playOnAwake = false;
             s.loop = false;

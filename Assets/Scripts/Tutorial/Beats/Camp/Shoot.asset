@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
   m_Name: Shoot
   m_EditorClassIdentifier: 
-  voiceInstruction: {fileID: 8300000, guid: b8a64ee9786cb3a44a52db7fe6c433a0, type: 3}
+  voiceInstruction: {fileID: 8300000, guid: e2f853cbe67260f4295aae6b59a9cc15, type: 3}
   uiInstruction: {fileID: 2854590116207513960, guid: b4340a21dbbeec34684479b162342e4d, type: 3}
   cantMove: 0
   canFight: 0
+  slowTime: 0
   autoDestroy: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
   m_Name: Jump
   m_EditorClassIdentifier: 
-  voiceInstruction: {fileID: 8300000, guid: 1191f145ce8f67140b92f0ab7a39e418, type: 3}
+  voiceInstruction: {fileID: 8300000, guid: 2db668ab485897d45a9de7947a9637f1, type: 3}
   uiInstruction: {fileID: 2854590116207513960, guid: a19e5c5e34c6546429f158c41f1231d6, type: 3}
   cantMove: 0
   canFight: 0

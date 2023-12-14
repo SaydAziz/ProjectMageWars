@@ -20,7 +20,7 @@ public class TutorialTrigger : MonoBehaviour
         if (other.gameObject.layer == 7 && !triggered)
         {
             triggered = true;
-            agent.TriggerTutBeat(this, beat.voiceInstruction, beat.uiInstruction, beat.cantMove, beat.autoDestroy, beat.canFight, beat.slowTime);
+            agent.TriggerTutBeat(this, beat.voiceInstruction, beat.uiInstruction, beat.cantMove, beat.autoDestroy, beat.canFight, beat.slowTime, beat.autoNext);
             this.gameObject.SetActive(false);
         }
     }

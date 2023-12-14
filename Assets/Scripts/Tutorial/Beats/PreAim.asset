@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
   m_Name: PreAim
   m_EditorClassIdentifier: 
-  voiceInstruction: {fileID: 8300000, guid: 133193a8ddaad3a478cd0bf4c25420b5, type: 3}
+  voiceInstruction: {fileID: 8300000, guid: dcf9c31587828524db6c31be16fdd262, type: 3}
   uiInstruction: {fileID: 0}
   cantMove: 0
   canFight: 0

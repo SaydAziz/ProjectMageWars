@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
   m_Name: DodgeExplain
   m_EditorClassIdentifier: 
-  voiceInstruction: {fileID: 8300000, guid: abbbceb3fd0219d49841e7bdeecc50f8, type: 3}
+  voiceInstruction: {fileID: 8300000, guid: a1cabbd614334db48a28fdf488f6bbff, type: 3}
   uiInstruction: {fileID: 0}
   cantMove: 0
   canFight: 0
+  autoNext: 8
+  slowTime: 0
   autoDestroy: 0

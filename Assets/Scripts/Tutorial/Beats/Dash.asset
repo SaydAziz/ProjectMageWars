@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
   m_Name: Dash
   m_EditorClassIdentifier: 
-  voiceInstruction: {fileID: 8300000, guid: 80574a829a97b584898be30608d5247c, type: 3}
+  voiceInstruction: {fileID: 8300000, guid: 7ed760cca06d15241b17827f255f5262, type: 3}
   uiInstruction: {fileID: 2854590116207513960, guid: fe00f13c64e16dc4ab9431f4f4d36ff3, type: 3}
   cantMove: 0
   canFight: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
   m_Name: HardPath
   m_EditorClassIdentifier: 
-  voiceInstruction: {fileID: 8300000, guid: 794af760063aa7b419f67ccd85c79255, type: 3}
+  voiceInstruction: {fileID: 8300000, guid: c704b39525bdcab4a90af1464bf421c4, type: 3}
   uiInstruction: {fileID: 0}
   cantMove: 0
   canFight: 0

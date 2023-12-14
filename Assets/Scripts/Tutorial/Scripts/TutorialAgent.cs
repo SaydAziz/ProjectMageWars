@@ -99,7 +99,7 @@ public class TutorialAgent : MonoBehaviour
         currentTrigger = i;
     }
 
-    public void TriggerTutBeat(TutorialTrigger trigger, AudioClip clip, Canvas canvas, bool cantMove, float autoDestroy, bool canFight, float slowTime)
+    public void TriggerTutBeat(TutorialTrigger trigger, AudioClip clip, Canvas canvas, bool cantMove, float autoDestroy, bool canFight, float slowTime, float autoNext)
     {
         if(ui != null) Destroy(ui.gameObject);
         triggers[currentTrigger].gameObject.SetActive(false);
@@ -146,6 +146,11 @@ public class TutorialAgent : MonoBehaviour
             {
                 dummy.EnableFight(false);
             }
+        }
+
+        if (autoNext > 0)
+        {
+            Invoke("EnableNextTrigger", autoNext);
         }
         
     }

@@ -16,4 +16,6 @@ MonoBehaviour:
   uiInstruction: {fileID: 0}
   cantMove: 0
   canFight: 1
+  autoNext: 0
+  slowTime: 0
   autoDestroy: 0

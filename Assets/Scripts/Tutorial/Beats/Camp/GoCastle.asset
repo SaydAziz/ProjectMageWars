@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
   m_Name: GoCastle
   m_EditorClassIdentifier: 
-  voiceInstruction: {fileID: 8300000, guid: 420738f2d165ef7499d25fd1b1e843f9, type: 3}
+  voiceInstruction: {fileID: 8300000, guid: ff4aa2990730d894c98c5a9128491fb2, type: 3}
   uiInstruction: {fileID: 0}
   cantMove: 0
   canFight: 0
+  slowTime: 0
   autoDestroy: 0

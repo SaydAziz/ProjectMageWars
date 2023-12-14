@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
   m_Name: PreWall
   m_EditorClassIdentifier: 
-  voiceInstruction: {fileID: 8300000, guid: 7fdb15215944d7e4e9fd34c9086c3c59, type: 3}
+  voiceInstruction: {fileID: 8300000, guid: b1a3b89a8152a954c8502a1e22012e60, type: 3}
   uiInstruction: {fileID: 0}
   cantMove: 0
   canFight: 0

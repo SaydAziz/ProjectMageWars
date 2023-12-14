@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
   m_Name: DefenseTalk
   m_EditorClassIdentifier: 
-  voiceInstruction: {fileID: 8300000, guid: fba2d63809035d241b3a43510e341792, type: 3}
+  voiceInstruction: {fileID: 8300000, guid: bfd42fd4f763f594a91d9c5e49dc37d1, type: 3}
   uiInstruction: {fileID: 0}
   cantMove: 1
   canFight: 0
+  slowTime: 0
   autoDestroy: 0

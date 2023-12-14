@@ -7,6 +7,7 @@ using UnityEngine;
 public class TutorialAgent : MonoBehaviour
 {
     [SerializeField] AudioSource audio;
+    [SerializeField] AudioSource questSound;
     Canvas ui;
     [SerializeField] DummyEnemy dummy;
 
@@ -82,7 +83,7 @@ public class TutorialAgent : MonoBehaviour
     {
         if (currentTrigger == triggers.Count - 2)
         {
-            Invoke("DelayedEnd", 8);
+            Invoke("DelayedEnd", 5);
         }
             EnableTrigger(currentTrigger + 1);
 
@@ -118,7 +119,8 @@ public class TutorialAgent : MonoBehaviour
         
         if (canvas != null)
         {
-            ui = Instantiate(canvas);
+            ui = Instantiate(canvas);;
+            questSound.Play();
             if (autoDestroy > 0)
             {
                 Invoke("ResetUI", autoDestroy);

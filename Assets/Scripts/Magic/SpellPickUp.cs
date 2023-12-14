@@ -6,6 +6,7 @@ public class SpellPickUp : MonoBehaviour
 {
     [SerializeField] Spell spell;
     [SerializeField] AudioSource spellSound;
+    [SerializeField] AudioSource pickUp;
     float startingY;
 
     private void Start()
@@ -28,6 +29,7 @@ public class SpellPickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        AudioSource.PlayClipAtPoint(pickUp.clip, transform.position);
         other.GetComponent<PlayerData>().EquipSpell(spell, false);
         Destroy(gameObject);
     }

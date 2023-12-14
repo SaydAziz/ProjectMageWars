@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     void StartTut()
     {
         agent.EnableTrigger(1);
-        Invoke("DelayedStart", 4);
+        Invoke("DelayedStart", 2);
 
     }
     

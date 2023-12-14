@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af22b78942db2f44a34a81369b2f27d, type: 3}
   m_Name: shootDummy
   m_EditorClassIdentifier: 
-  voiceInstruction: {fileID: 8300000, guid: c04cd78bf482fbf4182df260e07dea28, type: 3}
+  voiceInstruction: {fileID: 8300000, guid: 11ad78bc6e328cb478403bed6376624d, type: 3}
   uiInstruction: {fileID: 0}
   cantMove: 0
   canFight: 0

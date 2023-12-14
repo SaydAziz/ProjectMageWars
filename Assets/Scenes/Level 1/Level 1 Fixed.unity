@@ -5927,6 +5927,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516455788}
   m_Mesh: {fileID: -1267868474028109746, guid: 70c6a1882114a0a45ac1091a8375a10a, type: 3}
+--- !u!82 &1583698233 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4922679623772046431, guid: 7d28721fd805bdb4e80881e04a29af08, type: 3}
+  m_PrefabInstance: {fileID: 1837565175}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1622640629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2603457536238695340, guid: cef52e2dda53f5f488ae14377c6ad6ea, type: 3}
@@ -6062,6 +6067,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 789389100808352394, guid: 7d28721fd805bdb4e80881e04a29af08, type: 3}
+      propertyPath: questSound
+      value: 
+      objectReference: {fileID: 1583698233}
+    - target: {fileID: 789389100808352394, guid: 7d28721fd805bdb4e80881e04a29af08, type: 3}
       propertyPath: playerInput
       value: 
       objectReference: {fileID: 719337686}
@@ -6147,6 +6156,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6038151603470934428, guid: 7d28721fd805bdb4e80881e04a29af08, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7092766422960211819, guid: 7d28721fd805bdb4e80881e04a29af08, type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

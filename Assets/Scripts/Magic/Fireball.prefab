@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3227322538797270206}
   - component: {fileID: 9058297089097585359}
   - component: {fileID: 5418731383445644503}
+  - component: {fileID: 3371694392816286287}
   m_Layer: 3
   m_Name: Fireball
   m_TagString: Untagged
@@ -28,9 +29,9 @@ Transform:
   m_GameObject: {fileID: 4642234107294400351}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.22770122, y: 0.22770122, z: 0.22770122}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: 0.012451, z: 0}
+  m_LocalScale: {x: 0.26151994, y: 0.010597928, z: 0.10663617}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7431100355003853766}
   m_Father: {fileID: 0}
@@ -76,7 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3227322538797270206}
   impact: {fileID: 1559265251090958766, guid: 01d8959385cba3a4bb5c9662c624ec37, type: 3}
-  layer: 0
+  layer: 7
   ImpactSFX: {fileID: 8300000, guid: 55f4a25b12ba46b43b7f45867037f91b, type: 3}
 --- !u!135 &5418731383445644503
 SphereCollider:
@@ -95,10 +96,33 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &3371694392816286287
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4642234107294400351}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.34376988
+  m_Height: 1
+  m_Direction: 0
+  m_Center: {x: 0, y: 2.8100007, z: 1.42}
 --- !u!1001 &7768220004691978090
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -49,6 +50,7 @@ public class Projectile : MonoBehaviour
         {
             FunctionalUtility.SetScaleRecursively(this.gameObject, 5f);
         }
+        //this.gameObject.transform.position = new Vector3(transform.position.x - 0.2f, transform.position.y, transform.position.z);
         rb.constraints = RigidbodyConstraints.None;
         rb.velocity = transform.forward * travelSpeed;
         Invoke("Die", deathTimer);

@@ -84,10 +84,11 @@ public class TutorialAgent : MonoBehaviour
     public void EnableNextTrigger()
     {
         CancelInvoke(); //MIGHT BE A BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD IDEA
-        if (currentTrigger == triggers.Count - 2)
+        if (GameManager.Instance.isCamp && currentTrigger == triggers.Count - 2)
         {
             Invoke("DelayedEnd", 5);
         }
+        
             EnableTrigger(currentTrigger + 1);
 
     }
@@ -141,6 +142,12 @@ public class TutorialAgent : MonoBehaviour
 
         if (GameManager.Instance.isCamp)
         {
+            if (currentTrigger == triggers.Count - 3)
+            {
+                dummy.EnableCollider(true);
+            }
+
+
             if (canFight)
             {
                 dummy.EnableFight(true);

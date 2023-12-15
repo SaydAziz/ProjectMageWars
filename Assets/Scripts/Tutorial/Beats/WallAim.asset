@@ -16,5 +16,6 @@ MonoBehaviour:
   uiInstruction: {fileID: 2854590116207513960, guid: acdb477b2f16a4c42b1f5885de0043f6, type: 3}
   cantMove: 0
   canFight: 0
+  autoNext: 0.01
   slowTime: 0.05
   autoDestroy: 0

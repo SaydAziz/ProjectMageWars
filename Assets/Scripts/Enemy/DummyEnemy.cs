@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class DummyEnemy : EnemyController
 {
     [SerializeField] private Animator anim;
     [SerializeField] private Transform spellSpawnR;
+    [SerializeField] private Collider col;
 
     string animL, animR, currentAnim;
 
@@ -102,11 +104,17 @@ public class DummyEnemy : EnemyController
         CancelInvoke();
         if (fight)
         {
+            EnableCollider(false);
             Invoke("resetAttack", spell.useCooldown);
         }
         else
         {
             noAttackCD = fight;
         }
+    }
+
+    public void EnableCollider(bool val)
+    {
+        col.enabled = val;
     }
 }

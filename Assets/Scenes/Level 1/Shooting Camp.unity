@@ -2423,6 +2423,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 4922679623772046431, guid: 7d28721fd805bdb4e80881e04a29af08, type: 3}
   m_PrefabInstance: {fileID: 84497126170091239}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &985071147 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7092766422960211819, guid: 7d28721fd805bdb4e80881e04a29af08, type: 3}
+  m_PrefabInstance: {fileID: 84497126170091239}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &996521623
 GameObject:
   m_ObjectHideFlags: 0
@@ -4155,6 +4160,10 @@ PrefabInstance:
       propertyPath: dummy
       value: 
       objectReference: {fileID: 4884261910930623270}
+    - target: {fileID: 789389100808352394, guid: 7d28721fd805bdb4e80881e04a29af08, type: 3}
+      propertyPath: audioS
+      value: 
+      objectReference: {fileID: 985071147}
     - target: {fileID: 789389100808352394, guid: 7d28721fd805bdb4e80881e04a29af08, type: 3}
       propertyPath: timerTxt
       value: 

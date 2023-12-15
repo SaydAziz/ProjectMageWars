@@ -128,17 +128,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6768516505273131651}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.2395103, y: 3.2395103, z: 3.2395103}
+  m_LocalScale: {x: 3.2878218, y: 2.6054146, z: 3.2878218}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3220202729509396551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 40, y: -145.59}
-  m_SizeDelta: {x: 218, y: 50}
+  m_AnchoredPosition: {x: -79, y: -133.57999}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &4534020096296109669
 CanvasRenderer:
@@ -168,10 +168,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Use         to jump -'
+  m_text: '- Use               to jump -'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cfebb459fa71cb54aaf40ad425ae6360, type: 2}
-  m_sharedMaterial: {fileID: -2662145342843205157, guid: cfebb459fa71cb54aaf40ad425ae6360, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ba25b13347a34b846833542e27cf52bf, type: 2}
+  m_sharedMaterial: {fileID: -3602049356999291773, guid: ba25b13347a34b846833542e27cf52bf, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 24.359547, w: 24.951447}
+  m_margin: {x: 0, y: 0, z: -48.115803, w: 24.951447}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -264,14 +264,14 @@ RectTransform:
   m_GameObject: {fileID: 8910109727465075875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.912778, y: 2.912778, z: 2.912778}
+  m_LocalScale: {x: 3.2027233, y: 3.2027233, z: 3.2027233}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3220202729509396551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -40, y: -33}
+  m_AnchoredPosition: {x: -64, y: -10}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5923888229801983484

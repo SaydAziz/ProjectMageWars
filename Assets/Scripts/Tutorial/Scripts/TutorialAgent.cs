@@ -11,7 +11,7 @@ public class TutorialAgent : MonoBehaviour
     Canvas ui;
     [SerializeField] DummyEnemy dummy;
 
-    private float timeLeft = 14;
+    private float timeLeft = 16;
     private float currentTime;
     private bool timerOn;
     [SerializeField] TMP_Text timerTxt;
@@ -58,7 +58,7 @@ public class TutorialAgent : MonoBehaviour
             currentTrigger--;
             dummy.EnableFight(false);
             timerOn = false;
-            timeLeft = 14;
+            timeLeft = 16;
         }
 
         triggers[currentTrigger].gameObject.SetActive(true);

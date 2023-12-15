@@ -13,6 +13,7 @@ public class Menu : MonoBehaviour
     GameSettings gameSettings;
 
     bool menuOn = false;
+    float timeCache;
 
     private void Awake()
     {
@@ -27,13 +28,14 @@ public class Menu : MonoBehaviour
         Cursor.visible = menuOn;
         if (menuOn)
         {
+            timeCache = Time.timeScale;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
-            Time.timeScale = 1;
+            Time.timeScale = timeCache;
 
         }
     }
@@ -44,13 +46,14 @@ public class Menu : MonoBehaviour
         Cursor.visible = menuOn;
         if (menuOn)
         {
+            timeCache = Time.timeScale;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
-            Time.timeScale = 1;
+            Time.timeScale = timeCache;
 
         }
     }

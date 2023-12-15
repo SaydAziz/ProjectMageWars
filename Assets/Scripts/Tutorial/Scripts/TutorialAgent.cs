@@ -11,7 +11,7 @@ public class TutorialAgent : MonoBehaviour
     Canvas ui;
     [SerializeField] DummyEnemy dummy;
 
-    private float timeLeft = 16;
+    private float timeLeft = 18;
     private float currentTime;
     private bool timerOn;
     [SerializeField] TMP_Text timerTxt;
@@ -46,7 +46,7 @@ public class TutorialAgent : MonoBehaviour
 
     public void ResetTrigger()
     {
-        
+        Time.timeScale = 1;   
         if (ui != null)
         {
             ResetUI();
@@ -104,6 +104,11 @@ public class TutorialAgent : MonoBehaviour
         currentTrigger = i;
     }
 
+    void ResetSlomo()
+    {
+        Time.timeScale = 1;
+    }
+
     public void TriggerTutBeat(TutorialTrigger trigger, AudioClip clip, Canvas canvas, bool cantMove, float autoDestroy, bool canFight, float slowTime, float autoNext)
     {
         if(ui != null) Destroy(ui.gameObject);
@@ -113,6 +118,7 @@ public class TutorialAgent : MonoBehaviour
         if (slowTime > 0)
         {
             Time.timeScale = slowTime;
+            Invoke("ResetSlomo", 5);
         }
 
         if (audioS != null)

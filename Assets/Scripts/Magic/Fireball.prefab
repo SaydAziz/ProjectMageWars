@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.036292642, y: 0.036292642, z: 0.036292642}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7431100355003853766}
@@ -76,9 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 3227322538797270206}
   impact: {fileID: 1559265251090958766, guid: 01d8959385cba3a4bb5c9662c624ec37, type: 3}
-  shootLayer:
-    serializedVersion: 2
-    m_Bits: 1
+  layer: 0
   ImpactSFX: {fileID: 8300000, guid: 55f4a25b12ba46b43b7f45867037f91b, type: 3}
 --- !u!135 &5418731383445644503
 SphereCollider:

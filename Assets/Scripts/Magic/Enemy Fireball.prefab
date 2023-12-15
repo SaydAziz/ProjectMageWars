@@ -109,15 +109,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 207142272894015612, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.15
+      value: 1.4954913
       objectReference: {fileID: 0}
     - target: {fileID: 207142272894015612, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.15
+      value: 1.4954913
       objectReference: {fileID: 0}
     - target: {fileID: 207142272894015612, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.15
+      value: 1.4954913
       objectReference: {fileID: 0}
     - target: {fileID: 207142272894015612, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -129,15 +129,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 931911459925331116, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.15
+      value: 0.77844006
       objectReference: {fileID: 0}
     - target: {fileID: 931911459925331116, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.15
+      value: 0.77844006
       objectReference: {fileID: 0}
     - target: {fileID: 931911459925331116, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.15
+      value: 0.77844006
       objectReference: {fileID: 0}
     - target: {fileID: 931911459925331116, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -185,15 +185,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1465398482033358675, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.15
+      value: 1.4954913
       objectReference: {fileID: 0}
     - target: {fileID: 1465398482033358675, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.15
+      value: 1.4954913
       objectReference: {fileID: 0}
     - target: {fileID: 1465398482033358675, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.15
+      value: 1.4954913
       objectReference: {fileID: 0}
     - target: {fileID: 1465398482033358675, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -213,15 +213,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3775180954029711241, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.15
+      value: 1.4954913
       objectReference: {fileID: 0}
     - target: {fileID: 3775180954029711241, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.15
+      value: 1.4954913
       objectReference: {fileID: 0}
     - target: {fileID: 3775180954029711241, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.15
+      value: 1.4954913
       objectReference: {fileID: 0}
     - target: {fileID: 3775180954029711241, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -233,15 +233,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7286853376586070934, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.15
+      value: 1.4954913
       objectReference: {fileID: 0}
     - target: {fileID: 7286853376586070934, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.15
+      value: 1.4954913
       objectReference: {fileID: 0}
     - target: {fileID: 7286853376586070934, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.15
+      value: 1.4954913
       objectReference: {fileID: 0}
     - target: {fileID: 7286853376586070934, guid: 1ebabac39df05424eaf7cc7caf04744a, type: 3}
       propertyPath: m_LocalPosition.y

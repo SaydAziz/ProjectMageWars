@@ -13,7 +13,7 @@ public class OrcEnemy : EnemyController
         attackCD = 1f;
         roamRange = 10;
         sightRange = 25;
-        attackRange = 3;
+        attackRange = 2;
         agent.speed = 5;
         health = 50;
     }

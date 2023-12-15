@@ -45,7 +45,10 @@ public class Projectile : MonoBehaviour
         rb.detectCollisions = true;
         transform.parent = null;
         rb.freezeRotation = false;
-        FunctionalUtility.SetScaleRecursively(this.gameObject, 5f);
+        if (this.gameObject.layer != 9)
+        {
+            FunctionalUtility.SetScaleRecursively(this.gameObject, 5f);
+        }
         rb.constraints = RigidbodyConstraints.None;
         rb.velocity = transform.forward * travelSpeed;
         Invoke("Die", deathTimer);

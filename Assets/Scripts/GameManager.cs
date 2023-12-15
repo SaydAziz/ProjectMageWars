@@ -59,6 +59,11 @@ public class GameManager : MonoBehaviour
             footSteps.DOFade(1f, 3f).SetEase(Ease.Linear);
         }
 
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            player.canDash = true;
+        }
+
     }
 
 

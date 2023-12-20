@@ -11,7 +11,7 @@ public class TutorialAgent : MonoBehaviour
     Canvas ui;
     [SerializeField] DummyEnemy dummy;
 
-    private float timeLeft = 18;
+    public float timeLeft = 12;
     private float currentTime;
     private bool timerOn;
     [SerializeField] TMP_Text timerTxt;
@@ -35,7 +35,6 @@ public class TutorialAgent : MonoBehaviour
             }
             else
             {
-                Debug.Log("Timer Done.");
                 timeLeft = 0;
                 timerOn = false;
                 timerTxt.gameObject.SetActive(false);
@@ -46,6 +45,7 @@ public class TutorialAgent : MonoBehaviour
 
     public void ResetTrigger()
     {
+        CancelInvoke();
         Time.timeScale = 1;   
         if (ui != null)
         {
@@ -58,7 +58,7 @@ public class TutorialAgent : MonoBehaviour
             currentTrigger--;
             dummy.EnableFight(false);
             timerOn = false;
-            timeLeft = 16;
+            timeLeft = 14;
         }
 
         triggers[currentTrigger].gameObject.SetActive(true);
@@ -83,6 +83,7 @@ public class TutorialAgent : MonoBehaviour
 
     public void EnableNextTrigger()
     {
+        Debug.Log("NEXT TRIGGER.");
         CancelInvoke(); //MIGHT BE A BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD IDEA
         if (GameManager.Instance.isCamp && currentTrigger == triggers.Count - 2)
         {

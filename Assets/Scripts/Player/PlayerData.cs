@@ -50,13 +50,12 @@ public class PlayerData : MonoBehaviour, IDamageable
     {
         if (!isDead)
         {
-            GameManager.Instance.playerInput.enabled = false;
+            GameManager.Instance.DeathStuff();
             health = 1;
             isDead = true;
             vController.BlackOut(1);
             Invoke("hitCP", 2);
         }
-        
     }
 
     private void hitCP()

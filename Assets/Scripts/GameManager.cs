@@ -74,6 +74,15 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void DeathStuff()
+    {
+        GameManager.Instance.playerInput.enabled = false;
+        if (isCamp)
+        {
+            agent.timeLeft += 10;
+        }
+    }
+
     public void ResetCheckpoint()
     {
         Debug.Log("RESETTITNG");

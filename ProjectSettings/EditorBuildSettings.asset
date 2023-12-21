@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1/Courtyard Level.unity
     guid: 5bf029543bd8bc241a863a21633400da
+  - enabled: 1
+    path: Assets/Scenes/TempEnd.unity
+    guid: a669d27e378c4824bbbcb24bdf37b957
   m_configObjects: {}

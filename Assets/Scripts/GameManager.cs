@@ -81,6 +81,10 @@ public class GameManager : MonoBehaviour
         {
             agent.timeLeft += 10;
         }
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            SceneManager.LoadScene(5);
+        }
     }
 
     public void ResetCheckpoint()
